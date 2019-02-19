@@ -1,0 +1,3689 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.0.6" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.6">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.0.6">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.0.6">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.6" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.0.6',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="PHP | 数据库 | MYSQLI扩展 | GD操作 (画图) | PDO (操作数据库) SMARTY (模板技术) | MVC (编程方式) | TP5框架开发">
+<meta name="keywords" content="php,mysql,tp5">
+<meta property="og:type" content="article">
+<meta property="og:title" content="quick-php">
+<meta property="og:url" content="http://JIUXINYAN.com/2019/01/08/quick-php/index.html">
+<meta property="og:site_name" content="moxin-blog">
+<meta property="og:description" content="PHP | 数据库 | MYSQLI扩展 | GD操作 (画图) | PDO (操作数据库) SMARTY (模板技术) | MVC (编程方式) | TP5框架开发">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="d:/PHP/note/二/mn_img/img_d22/5.jpg">
+<meta property="og:image" content="d:/PHP/note/二/mn_img/img_d22/6.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/9.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/12.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/10.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/13.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/11.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/14.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/6.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/7.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/8.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/15.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/16.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/18.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/17.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/27.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/28.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/19.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/20.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/29.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/30.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/21.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/21.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/25.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/26.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/23.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/24.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/32.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/39.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/33.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/34.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/35.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/36.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/37.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/38.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/40.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/41.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/43.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/42.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/44.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/45.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/46.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/47.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/48.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/49.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/50.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/51.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/52.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/53.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/54.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/55.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/56.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/57.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/58.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/59.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/69.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/70.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/71.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/72.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/73.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/74.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/75.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/76.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/77.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/78.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/79.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/80.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/82.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/79.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/81.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/21.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/10.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/11.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/84.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/85.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/12.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/13.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/14.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/60.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/61.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/62.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/63.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/65.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/66.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/67.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/15.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/16.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/17.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/86.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/87.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/88.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/18.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/19.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/89.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/90.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/91.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/92.jpg">
+<meta property="og:image" content="http://jiuxinyan.com/images/20.png">
+<meta property="og:updated_time" content="2019-02-19T06:24:31.852Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="quick-php">
+<meta name="twitter:description" content="PHP | 数据库 | MYSQLI扩展 | GD操作 (画图) | PDO (操作数据库) SMARTY (模板技术) | MVC (编程方式) | TP5框架开发">
+<meta name="twitter:image" content="d:/PHP/note/二/mn_img/img_d22/5.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="http://JIUXINYAN.com/2019/01/08/quick-php/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>quick-php | moxin-blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://https://github.com/JIUXINYAN" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> 
+
+<div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">moxin-blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+          
+  <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+</li>
+
+      
+
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+  
+
+
+
+ </div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://JIUXINYAN.com/2019/01/08/quick-php/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JIUXINYAN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/a.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="moxin-blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">quick-php</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-08T14:48:48+08:00">2019-01-08</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/quick/" itemprop="url" rel="index"><span itemprop="name">quick</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>PHP | 数据库 | MYSQLI扩展 | GD操作 (画图) | PDO (操作数据库)<br> SMARTY (模板技术) | MVC (编程方式) | TP5框架开发<br><a id="more"></a></p>
+<h1 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h1><h2 id="九大超全局预定义数组变量"><a href="#九大超全局预定义数组变量" class="headerlink" title="九大超全局预定义数组变量"></a>九大超全局预定义数组变量</h2><p>包括以下九个成员：</p>
+<blockquote>
+<p><strong>$_ENV</strong>                           <strong>$_SERVER</strong></p>
+<p>​            以下三个将会在表单传值部分进行讲解</p>
+<p><strong>$_GET</strong>                            <strong>$_POST</strong>                              <strong>$_REQUEST</strong></p>
+<p>​            以下两个将会在会话技术部分进行将爱那个接</p>
+<p><strong>$_COOKIE</strong>                     <strong>$_SESSION</strong></p>
+<p>​            下面这个将会在文件上传部分进行讲解</p>
+<p><strong>$_FILES</strong></p>
+<p>​            下面这个将会在作用域部分进行讲解</p>
+<p><strong>$GLOBALS</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>九大超全局预定义数组变量</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>$_ENV</strong></td>
+<td>获得程序所部署的环境相关信息。</td>
+</tr>
+<tr>
+<td><strong>$_SERVER</strong></td>
+<td>服务器和执行环境信息</td>
+</tr>
+<tr>
+<td><strong>$_GET</strong></td>
+<td>$_GET 被广泛应用于收集表单数据，在HTML form标签的指定该属性：”method=”get”。</td>
+</tr>
+<tr>
+<td><strong>$_POST</strong></td>
+<td>$_POST 被广泛应用于收集表单数据，在HTML form标签的指定该属性：”method=”post”。</td>
+</tr>
+<tr>
+<td><strong>$_REQUEST</strong></td>
+<td>用于收集HTML表单提交的数据。</td>
+</tr>
+<tr>
+<td><strong>$_COOKIE</strong></td>
+<td>$_COOKIE 变量用于取回 cookie 的值。</td>
+</tr>
+<tr>
+<td><strong>$_SESSION</strong></td>
+<td>存储和取回 session 变量</td>
+</tr>
+<tr>
+<td><strong>$_FILES</strong></td>
+<td>通过使用 $_FILES，可以从客户计算机向远程服务器上传文件。</td>
+</tr>
+<tr>
+<td><strong>$GLOBALS</strong></td>
+<td>引用全局作用域中可用的全部变量</td>
+</tr>
+</tbody>
+</table>
+<h2 id="魔术常量"><a href="#魔术常量" class="headerlink" title="魔术常量"></a>魔术常量</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>__LINE__</strong></td>
+<td>文件中的当前行号。</td>
+</tr>
+<tr>
+<td><strong>__FILE__</strong></td>
+<td>文件的完整路径和文件名。如果用在被包含文件中，则返回被包含的文件名。</td>
+</tr>
+<tr>
+<td><strong>__DIR__</strong></td>
+<td>文件所在的目录。如果用在被包括文件中，则返回被包括的文件所在的目录。</td>
+</tr>
+<tr>
+<td><strong>__FUNCTION__</strong></td>
+<td>函数名称</td>
+</tr>
+<tr>
+<td><strong>__CLASS__</strong></td>
+<td>类的名称</td>
+</tr>
+<tr>
+<td><strong>__TRAIT__</strong></td>
+<td>Trait 的名字</td>
+</tr>
+<tr>
+<td><strong>__METHOD__</strong></td>
+<td>类的方法名</td>
+</tr>
+<tr>
+<td><strong>__NAMESPACE__</strong></td>
+<td>当前命名空间的名称（区分大小写）。</td>
+</tr>
+</tbody>
+</table>
+<p>魔术常量本质上==不能算==是严格意义上的==常量==，常量在脚本代码中是不允许被修改的，也就是值是固定的，但是魔术常量会随着在脚本代码中位置的变换，其值也会发生改变。</p>
+<h2 id="魔术方法"><a href="#魔术方法" class="headerlink" title="魔术方法"></a>魔术方法</h2><p>PHP 将所有以 <strong>（两个下划线）开头的类方法保留为魔术方法。所以在定义类方法时，除了上述魔术方法，建议不要以 </strong> 为前缀。 </p>
+<table>
+<thead>
+<tr>
+<th>魔术方法</th>
+<th>触发条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>__construct()</strong></td>
+<td><strong>实例化</strong>一个对象后 (new) ；构造函数</td>
+</tr>
+<tr>
+<td><strong>__clone()</strong></td>
+<td>使用clone<strong>克隆</strong>一个对象时</td>
+</tr>
+<tr>
+<td><strong>__destruct()</strong></td>
+<td>在<strong>销毁</strong>一个类之前执行 ；析构函数</td>
+</tr>
+<tr>
+<td><strong>__call()</strong></td>
+<td><strong>调用</strong>一个不可访问<strong>方法</strong>时</td>
+</tr>
+<tr>
+<td><strong>__callStatic()</strong></td>
+<td><strong>调用</strong>静态方式中调用一个不可访问<strong>方法</strong>时</td>
+</tr>
+<tr>
+<td><strong>__get()</strong></td>
+<td><strong>获取</strong>一个不可访问的<strong>非静态</strong>成员属性的值时</td>
+</tr>
+<tr>
+<td><strong>__set()</strong></td>
+<td><strong>设置</strong>（添加或者修改）一个不可访问的<strong>非静态</strong>成员属性的值时</td>
+</tr>
+<tr>
+<td><strong>__unset()</strong></td>
+<td><strong>删除</strong>一个不可访问的<strong>非静态</strong>成员属性时</td>
+</tr>
+<tr>
+<td><strong>__isset()</strong></td>
+<td>当使用isset函数<strong>判断</strong>一个不可访问的成员属性是否存在时</td>
+</tr>
+<tr>
+<td><strong>__sleep()</strong></td>
+<td>执行<strong>serialize</strong>()（<strong>对象序列化</strong>）时，先会调用这个函数 。此功能可以用于清理对象</td>
+</tr>
+<tr>
+<td><strong>__wakeup()</strong></td>
+<td>执行<strong>unserialize</strong>()（<strong>将对象进行反序列化</strong>）时，先会调用这个函数。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="文件包含的四种方式"><a href="#文件包含的四种方式" class="headerlink" title="文件包含的四种方式"></a>文件包含的四种方式</h2><p>1）include；2）include_once；3）require；4）require_once；</p>
+<p>四种方式包括：</p>
+<blockquote>
+<p><strong>include</strong>：引入文件，如果引入文件时<strong>存在错误</strong>，<strong>程序不会中断</strong>，而<strong>会继续执行</strong>，并报一个<strong>警告错误</strong>；</p>
+<p><strong>include_once</strong>：与include相同，但是include_once会检查被引入的文件<strong>之前是否已经引入</strong>，如果引进引入则不会再次引入；</p>
+<p><strong>require</strong>：引入文件，如果引入文件时<strong>存在错误</strong>，则<strong>程序中断执行</strong>，并显示<strong>致命错误</strong>；</p>
+<p><strong>require_once</strong>：与require相同，但是require_once会检查被引入的文件<strong>之前是否已经引入</strong>，如果引进引入则不会再次引入；</p>
+</blockquote>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="类型转换函数"><a href="#类型转换函数" class="headerlink" title="类型转换函数"></a>类型转换函数</h3><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>用法</th>
+<th>语法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>intval( <code>var</code> )</strong></td>
+<td>获取变量的整数值</td>
+<td>intval (mixed $var [, int $base = 10 ] )  base 转换进制，返回变量 var 的 int 数值。</td>
+</tr>
+<tr>
+<td><strong>boolval( <code>var</code> )</strong></td>
+<td>获取变量的布尔值</td>
+<td>boolval ( mixed $var )    返回var变量的布尔值。</td>
+</tr>
+<tr>
+<td><strong>floatval( <code>var</code> )</strong></td>
+<td>获取变量的浮点值</td>
+<td>floatval ( mixed $var )   返回变量 var 的 float 数值。</td>
+</tr>
+<tr>
+<td><strong>strval( <code>var</code> )</strong></td>
+<td>获取变量的字符串值。</td>
+<td>strval ( mixed $var )  返回 var 的 string 值。var 可以是任何标量类型。</td>
+</tr>
+<tr>
+<td><strong>settype()</strong></td>
+<td>设置变量的类型</td>
+<td>bool settype ( mixed &amp;$var , string $type )</td>
+</tr>
+</tbody>
+</table>
+<p><strong>函数详情：</strong></p>
+<blockquote>
+<p><strong>settype</strong> ( <code>var</code>, <code>type</code> )</p>
+<blockquote>
+<p><strong>参数：</strong></p>
+<ul>
+<li><p><code>var</code></p>
+<p>要转换的变量。</p>
+</li>
+<li><p><code>type</code></p>
+<p> type 的可能值为：</p>
+<ul>
+<li>“boolean”      “integer”    “float”</li>
+<li>“string”    “array”    “object”    “null”</li>
+</ul>
+</li>
+</ul>
+<p><strong>返回值：</strong></p>
+<p>   成功时返回 <strong>TRUE</strong>， 或者在失败时返回 <strong>FALSE</strong>。 </p>
+</blockquote>
+</blockquote>
+<h3 id="类型判断相关函数"><a href="#类型判断相关函数" class="headerlink" title="类型判断相关函数"></a>类型判断相关函数</h3><p>涉及的函数：</p>
+<blockquote>
+<p>gettype( <code>var</code> )    获取数据的数据类型</p>
+<p>is_numeric( <code>var</code> )     判断是否是一个数值</p>
+<p>is_int( <code>var</code> )    判断是否是一个整型值    </p>
+<p>is_bool( <code>var</code> )    判断是否是一个布尔型值</p>
+<p>is_float( <code>var</code> )    判断是否是一个浮点型值</p>
+<p>is_string(<code>var</code>)    判断是否是一个字符串型值</p>
+<p>is_array(<code>var</code>)    判断是否是一个数组型值</p>
+<p>is_object( <code>var</code> )    判断是否是一个对象型值</p>
+<p>is_resource( <code>var</code> )    判断是否是一个资源型值</p>
+<p>is_null( <code>var</code> )    判断是否是一个null类型值</p>
+</blockquote>
+<h3 id="进制转换相关函数"><a href="#进制转换相关函数" class="headerlink" title="进制转换相关函数"></a>进制转换相关函数</h3><p><strong>bin</strong>：binary二进制          <strong>dec</strong>：decimal十进制          <strong>oct</strong>：octal八进制         <strong>hex</strong>：hexdecimal十六进制</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>abs</strong>( <code>var</code> )</td>
+<td>取一个数值的绝对值</td>
+</tr>
+<tr>
+<td><strong>bindec</strong>( <code>var</code> )</td>
+<td>二进制转十进制</td>
+</tr>
+<tr>
+<td><strong>octdec</strong>( <code>var</code> )</td>
+<td>八进制转十进制</td>
+</tr>
+<tr>
+<td><strong>hexdec</strong>( <code>var</code> )</td>
+<td>十六进制转十进制</td>
+</tr>
+<tr>
+<td><strong>decbin</strong>( <code>var</code> )</td>
+<td>十进制转二进制</td>
+</tr>
+<tr>
+<td><strong>decoct</strong>( <code>var</code> )</td>
+<td>十进制转八进制</td>
+</tr>
+<tr>
+<td><strong>dechex</strong>( <code>var</code> )</td>
+<td>十进制转十六进制</td>
+</tr>
+<tr>
+<td><strong>base_convert</strong>( <code>var</code> )</td>
+<td>n进制转m进制（取值范围是2到36，包括2和36）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="字符串函数（-String函数）"><a href="#字符串函数（-String函数）" class="headerlink" title="字符串函数（ String函数）"></a>字符串函数（ String函数）</h3><h4 id="字符串—数组-转换"><a href="#字符串—数组-转换" class="headerlink" title="字符串—数组 转换"></a>字符串—数组 转换</h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>implode</strong>()</td>
+<td>把数组粘合成一个字符串。返回值：字符串</td>
+</tr>
+<tr>
+<td><strong>explode</strong>()</td>
+<td>把字符串打散为数组</td>
+</tr>
+<tr>
+<td><strong>str_split</strong>()</td>
+<td>把字符串一个个(或自定义)分割到数组中。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>函数详情：</strong></p>
+<blockquote>
+<p><strong>implode</strong> ( <code>[glue]</code> , <code>pieces</code> )</p>
+<blockquote>
+<p>参数：</p>
+<ul>
+<li><p><code>glue</code></p>
+<p>默认为空的字符串。   </p>
+</li>
+<li><p><code>pieces</code></p>
+<p>想要转换的数组。 </p>
+</li>
+</ul>
+</blockquote>
+<p><strong>explode </strong>( <code>delimiter</code>  , <code>string</code>   , <code>[limit]</code> )</p>
+<blockquote>
+<p>参数：</p>
+<ul>
+<li><p><code>delimiter</code></p>
+<p>边界上的分隔字符。    </p>
+</li>
+<li><p><code>string</code></p>
+<p>进行操作的字符串。 </p>
+</li>
+<li><p><code>limit</code></p>
+<ul>
+<li>如果设置了此参数并且是正数，则返回的数组包含最多limit个元素，而最后那个元素将包含string的剩余部分。</li>
+<li>如果limit参数是负数，则返回除了最后的   -limit   个元素外的所有元素。</li>
+<li>如果 limit 是 0，则会被当做 1。 </li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p><strong>str_split</strong> ( <code>string</code>  , <code>[split_length]</code> )</p>
+<blockquote>
+<p>参数：</p>
+<ul>
+<li><p><code>string</code></p>
+<p>进行操作的字符串。</p>
+</li>
+<li><p><code>split_length</code></p>
+<p>每一段的长度。</p>
+</li>
+</ul>
+</blockquote>
+</blockquote>
+<h4 id="除空白函数"><a href="#除空白函数" class="headerlink" title="除空白函数"></a>除空白函数</h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>trim</strong>()</td>
+<td>移除字符串两侧的空白字符和其他字符。</td>
+</tr>
+<tr>
+<td><strong>ltrim</strong>()</td>
+<td>移除字符串左侧的空白字符或其他字符。</td>
+</tr>
+<tr>
+<td><strong>rtrim</strong>()</td>
+<td>移除字符串右侧的空白字符或其他字符。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>函数详情：</strong></p>
+<blockquote>
+<p><strong>trim</strong> ( <code>str</code> ，<code>[character_mask]</code> )</p>
+<p><strong>ltrim</strong> ( <code>str</code> ，<code>[character_mask]</code> )</p>
+<p><strong>rtrim</strong> ( <code>str</code> ，<code>[character_mask]</code> )</p>
+<blockquote>
+<p>参数：</p>
+<ul>
+<li><p><code>string</code></p>
+<p>进行操作的字符串。</p>
+</li>
+<li><p><code>character_mask</code></p>
+<p>可选参数，过滤字符也可由 character_mask 参数指定。默认” \t\n\r\0\x0B”</p>
+<ul>
+<li>“ “         普通空格符。      </li>
+<li>“\t”        制表符。</li>
+<li>“\n”        换行符。      </li>
+<li>“\r”        回车符。</li>
+<li>“\0”        空字节符。      </li>
+<li>“\x0B”   垂直制表符。      </li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</blockquote>
+<h4 id="截取函数"><a href="#截取函数" class="headerlink" title="截取函数"></a>截取函数</h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>substr</strong>()</td>
+<td>用于截知道位置 从哪到哪截</td>
+</tr>
+<tr>
+<td><strong>strstr</strong>()</td>
+<td>查找字符串在另一字符串中的第一次出现  false往后截 true往前</td>
+</tr>
+</tbody>
+</table>
+<p><strong>函数详情：</strong></p>
+<blockquote>
+<p><strong>substr </strong>( <code>string</code> , <code>start</code> , <code>length</code> )</p>
+<blockquote>
+<p>参数：</p>
+<ul>
+<li><p><code>string</code></p>
+<p>进行操作的字符串。</p>
+</li>
+<li><p><code>start</code></p>
+<ul>
+<li>如果是非负数,返回的字符串将从string的start位置开始,从 0 开始计算。</li>
+<li>如果是负数,返回的字符串将从 string 结尾处向前数第start个字符开始。</li>
+<li>如果string的长度小于start,将返回 FALSE。 </li>
+</ul>
+</li>
+<li><p><code>length</code></p>
+<ul>
+<li>如果是正数的length,返回的字符串将从start处开始最多包括length个字符。 </li>
+<li>如果是负数的length,那么string末尾处的length个字符将会被省略。如果 start 不在这段文本中，那么将返回 FALSE。</li>
+<li>如果提供了值为 0，FALSE 或 NULL 的 length，那么将返回一个空字符串</li>
+<li>如果没有提供 length，返回的子字符串将从 start 位置开始直到字符串结尾。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p><strong>strstr</strong>    ( <code>haystack</code>   , <code>needle</code> , <code>before_needle</code> )</p>
+<blockquote>
+<p>参数：</p>
+<ul>
+<li><p><code>haystack</code></p>
+<p>输入字符串。 </p>
+</li>
+<li><p><code>needle</code></p>
+<p>如果needle不是一个字符串,那么它将被转化为整型并且作为字符的序号来使用。</p>
+</li>
+<li><p><code>before_needle</code></p>
+<p>若为 TRUE，strstr() 将返回 needle 在 haystack 中的位置之前的部分。</p>
+</li>
+</ul>
+</blockquote>
+</blockquote>
+<h4 id="大小写转换函数"><a href="#大小写转换函数" class="headerlink" title="大小写转换函数"></a>大小写转换函数</h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>strtolower</strong>( <code>string</code> )</td>
+<td>把字符串全部转换为小写字母。</td>
+</tr>
+<tr>
+<td><strong>strtoupper</strong>( <code>string</code> )</td>
+<td>把字符串全部转换为大写字母。</td>
+</tr>
+<tr>
+<td><strong>ucfirst</strong>( <code>string</code> )</td>
+<td>把字符串中的首字符转换为大写</td>
+</tr>
+</tbody>
+</table>
+<h4 id="查找函数"><a href="#查找函数" class="headerlink" title="查找函数"></a>查找函数</h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>strpos</strong>()</td>
+<td>返回字符串第一次出现的位置 。返回位置值</td>
+</tr>
+<tr>
+<td><strong>strrpos</strong>()</td>
+<td>返回字符串倒数第一次出现的位置 。返回位置值</td>
+</tr>
+</tbody>
+</table>
+<p><strong>函数详情：</strong></p>
+<blockquote>
+<p><strong>strpos</strong> ( <code>haystack</code> , <code>needle</code> , <code>offset</code> )</p>
+<blockquote>
+<p>参数：</p>
+<ul>
+<li><p><code>haystack</code></p>
+<p>在该字符串中进行查找。 </p>
+</li>
+<li><p><code>needle</code></p>
+<p>如果 needle 不是一个字符串，那么它将被转换为整型并被视为字符的顺序值。</p>
+</li>
+<li><p><code>offset</code> </p>
+<p>如果提供了此参数，搜索会从字符串该字符数的起始位置开始统计。       如果是负数，搜索会从字符串结尾指定字符数开始。</p>
+</li>
+</ul>
+</blockquote>
+<p><strong>strrpos</strong> ( <code>haystack</code> , <code>needle</code> , <code>offset</code> )</p>
+<blockquote>
+<p>参数：</p>
+<ul>
+<li><p><code>haystack</code></p>
+<p>在该字符串中进行查找。 </p>
+</li>
+<li><p><code>needle</code></p>
+<p>如果 needle 不是一个字符串，那么它将被转换为整型并被视为字符的顺序值。</p>
+</li>
+<li><p><code>offset</code> </p>
+<p>如果提供了此参数，搜索会从字符串该字符数的起始位置开始统计。       如果是负数，搜索会从字符串结尾指定字符数开始。</p>
+</li>
+</ul>
+</blockquote>
+</blockquote>
+<h4 id="替换函数"><a href="#替换函数" class="headerlink" title="替换函数"></a>替换函数</h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>str_replace</strong>()</td>
+<td>替换字符串中的一些字符</td>
+</tr>
+</tbody>
+</table>
+<p><strong>函数详情：</strong></p>
+<blockquote>
+<p><strong>str_replace</strong> ( <code>search</code> , <code>replace</code> , <code>subject</code> , <code>[count]</code> )</p>
+<blockquote>
+<p>参数：</p>
+<ul>
+<li><p><code>search</code></p>
+<p>替换的目标值，也就是 needle。一个数组可以指定多个目标。 </p>
+</li>
+<li><p><code>replace</code></p>
+<p>search 的替换值。一个数组可以被用来指定多重替换。</p>
+</li>
+<li><p><code>subject</code> </p>
+<p>进行替换的数组或者字符串。</p>
+<p>如果 subject 是一个数组，替换操作将遍历整个 subject，返回值也将是一个数组。 </p>
+</li>
+<li><p><code>count</code></p>
+<p>如果被指定，它的值将被设置为替换发生的次数。 </p>
+</li>
+</ul>
+</blockquote>
+</blockquote>
+<h4 id="格式化函数"><a href="#格式化函数" class="headerlink" title="格式化函数"></a>格式化函数</h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>printf</strong>()</td>
+<td>输出格式化的字符串。</td>
+</tr>
+<tr>
+<td><strong>sprintf</strong>()</td>
+<td>把格式化的字符串写入一个变量中。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="常用输出函数"><a href="#常用输出函数" class="headerlink" title="常用输出函数"></a>常用输出函数</h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>echo</strong>()</td>
+<td>只能以字符串的形式输出内容。通常适合输出字符串或整型浮点数据</td>
+</tr>
+<tr>
+<td><strong>print_r</strong>()</td>
+<td>适用于除布尔型 资源型 null外其他类型</td>
+</tr>
+<tr>
+<td><strong>var_dump</strong>()</td>
+<td>既能输出数据的值，又能够输出数据得知所属的数据类型</td>
+</tr>
+</tbody>
+</table>
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>str_repeat</strong>()</td>
+<td>把字符串重复指定的次数。</td>
+</tr>
+<tr>
+<td><strong>str_shuffle</strong>( <code>str</code> )</td>
+<td>随机地打乱字符串中的所有字符。</td>
+</tr>
+<tr>
+<td><strong>addslashes</strong>( <code>str</code> )</td>
+<td>防御。返回在预定义字符前添加反斜杠的字符串。</td>
+</tr>
+<tr>
+<td><strong>htmlspecialchars</strong>()</td>
+<td>防御。把一些预定义的字符转换为 HTML 实体。</td>
+</tr>
+</tbody>
+</table>
+<p> <strong>函数详情：</strong></p>
+<blockquote>
+<p><strong>str_repeat</strong> ( <code>input</code> , <code>multiplier</code> )</p>
+<blockquote>
+<p>参数：</p>
+<ul>
+<li><p><code>input</code></p>
+<p>待操作的字符串。 </p>
+</li>
+<li><p><code>multiplier</code></p>
+<p>input 被重复的次数。 </p>
+<p>必须&gt;= 0。如果为 0，函数返回空字符串。 </p>
+</li>
+</ul>
+</blockquote>
+<p><strong>htmlspecialchars</strong>    ( <code>string</code>   [,  <code>flags</code>    [,  <code>encoding</code>   [,  <code>double_encode</code> ]]] )</p>
+<blockquote>
+<p>参数：</p>
+<ul>
+<li><p><code>string</code></p>
+<p>带转换的字符。 </p>
+</li>
+</ul>
+</blockquote>
+</blockquote>
+<h3 id="数组函数-Array"><a href="#数组函数-Array" class="headerlink" title="数组函数(Array)"></a>数组函数(Array)</h3><p>涉及的函数：</p>
+<blockquote>
+<p>1）排序函数</p>
+<p>​     sort(), asort(), rsort(), arsort(), ksort(), krsort(), shuffle()</p>
+<p>2）元素指针函数</p>
+<p>​     current(), key(), next(), end(), prev(), reset(), each()</p>
+<p>3）其他函数</p>
+<p>​     count(), array_push(), array_pop(), array_reverse(), in_array(), </p>
+<p>​     array_keys(), array_values(), list()，array_merge(),range()</p>
+</blockquote>
+<h4 id="排序函数"><a href="#排序函数" class="headerlink" title="排序函数"></a>排序函数</h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>sort</strong>( <code>array</code> , <code>sort_flags</code> )</td>
+<td>对数值数组进行升序排序。 重新规划元素的下标</td>
+</tr>
+<tr>
+<td><strong>asort</strong>( <code>array</code> , <code>sort_flags</code> )</td>
+<td>对数值数组进行升序排序。 持元素的原下标不变</td>
+</tr>
+<tr>
+<td><strong>rsort</strong>( <code>array</code> , <code>sort_flags</code> )</td>
+<td>对数值数组进行降序排序。 重新规划元素的下标</td>
+</tr>
+<tr>
+<td><strong>arsort</strong>( <code>array</code> , <code>sort_flags</code> )</td>
+<td>对数值数组进行降序排序。 持元素的原下标不变</td>
+</tr>
+<tr>
+<td><strong>ksort</strong>( <code>array</code> , <code>sort_flags</code> )</td>
+<td>对关联数组按照键名升序排序。</td>
+</tr>
+<tr>
+<td><strong>krsort</strong>( <code>array</code> , <code>sort_flags</code> )</td>
+<td>对关联数组按照键名降序排序。</td>
+</tr>
+<tr>
+<td><strong>shuffle</strong>( <code>array</code> )</td>
+<td>把数组中的元素按随机重新排列。 重新规划元素下标</td>
+</tr>
+</tbody>
+</table>
+<p><strong>函数详情：</strong></p>
+<blockquote>
+<p><strong>sort</strong> ( <code>array</code> , <code>sort_flags</code> )</p>
+<blockquote>
+<p>参数：</p>
+<ul>
+<li><p><code>array</code></p>
+<p>必需。规定要进行排序的数组。</p>
+</li>
+<li><p><code>sort_flags</code> </p>
+<p>可选。规定如何排列数组的元素/项目。可能的值：</p>
+<ul>
+<li>0 = SORT_REGULAR - 默认。把每一项按常规顺序排列（Standard ASCII，不改变类型）。</li>
+<li>1 = SORT_NUMERIC - 把每一项作为数字来处理。</li>
+<li>2 = SORT_STRING - 把每一项作为字符串来处理。</li>
+<li>3 = SORT_LOCALE_STRING - 把每一项作为字符串来处理，基于当前区域设置（可通过 <a href="https://www.w3cschool.cn/php/func-string-setlocale.html" target="_blank" rel="noopener">setlocale()</a> 进行更改）。</li>
+<li>4 = SORT_NATURAL - 把每一项作为字符串来处理，使用类似 <a href="https://www.w3cschool.cn/php/func-array-natsort.html" target="_blank" rel="noopener">natsort()</a> 的自然排序。</li>
+<li>5 = SORT_FLAG_CASE - 可以结合（按位或）SORT_STRING 或 SORT_NATURAL 对字符串进行排序，不区分大小写。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</blockquote>
+<h4 id="元素指针函数"><a href="#元素指针函数" class="headerlink" title="元素指针函数"></a>元素指针函数</h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>current</strong> ( <code>array</code> )</td>
+<td>获取当前元素指针所在位置上的元素的值</td>
+</tr>
+<tr>
+<td><strong>key</strong> ( <code>array</code> )</td>
+<td>获取当前元素指针所在位置上的元素键(下标)</td>
+</tr>
+<tr>
+<td><strong>next</strong> ( <code>array</code> )</td>
+<td>将数组中的内部指针向右移动一位。</td>
+</tr>
+<tr>
+<td><strong>end</strong> ( <code>array</code>)</td>
+<td>将数组的内部指针指向最后一个元素。</td>
+</tr>
+<tr>
+<td><strong>prev</strong> ( <code>array</code>)</td>
+<td>将数组的内部指针向左倒回一位。</td>
+</tr>
+<tr>
+<td><strong>reset</strong> ( <code>array</code>)</td>
+<td>将数组的内部指针指向第一个元素。</td>
+</tr>
+<tr>
+<td><strong>each</strong> ( <code>array</code>)</td>
+<td>返回数组中当前的元素组成新的数组。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="操作元素"><a href="#操作元素" class="headerlink" title="操作元素"></a>操作元素</h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>array_push</strong>()</td>
+<td>添加新元素的(只能在末尾添加值) 。返回新数组的元素个数 。(增)</td>
+</tr>
+<tr>
+<td><strong>array_unshift</strong> ()</td>
+<td>在数组开头插入一个或多个元素。  返回新数组中元素的个数。 (增)</td>
+</tr>
+<tr>
+<td><strong>array_pop</strong>( <code>arr</code> )</td>
+<td>删除指定数组中最后一个元素。数组的最后一个值 (删)</td>
+</tr>
+<tr>
+<td><strong>array_shift</strong>( <code>arr</code> )</td>
+<td>删除数组中的第一个元素 。 返回被删除元素的值(删)</td>
+</tr>
+<tr>
+<td><strong>array_reverse</strong>()</td>
+<td>将元素的顺序颠倒。索引下标重新规划下标，字符串下标不变(改)</td>
+</tr>
+<tr>
+<td><strong>array_merge</strong>()</td>
+<td>将两个数组合并。索引下标重新规划下标，字符串下标不变(改)</td>
+</tr>
+<tr>
+<td><strong>array_flip</strong>( <code>arr</code> )</td>
+<td>数组中的值与键名互换（如果有重复前面的会被后面的覆盖）(改)</td>
+</tr>
+<tr>
+<td><strong>in_array</strong>()</td>
+<td>函数搜索数组中是否存在指定的值。返回布尔。(查)</td>
+</tr>
+<tr>
+<td><strong>array_search</strong>()</td>
+<td>在数组中搜索给定的值，如果成功则返回相应的键名。(查)</td>
+</tr>
+<tr>
+<td><strong>array_key_exists</strong>()</td>
+<td>检查指定的键名是否存在于数组中。返回布尔。(查)</td>
+</tr>
+<tr>
+<td><strong>isset</strong>()</td>
+<td>检索给定的键名是否存在数组中。返回布尔。(查)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>函数详情：</strong></p>
+<blockquote>
+<p><strong>array_push</strong> ( <code>array</code> ,  <code>value1</code> , <code>[value2...]</code> )</p>
+<blockquote>
+<p>参数：</p>
+<ul>
+<li><p><code>array</code></p>
+<p>输入的数组。 </p>
+</li>
+<li><p><code>value1</code> </p>
+</li>
+</ul>
+<p>​         要压入 array 末尾的第一个值。 </p>
+</blockquote>
+<p><strong>array_unshift</strong> ( <code>array</code>   , <code>value1</code> , <code>[value2...]</code> )</p>
+<blockquote>
+<p>参数：</p>
+<ul>
+<li><p><code>array</code></p>
+<p>输入的数组。 </p>
+</li>
+<li><p><code>value1</code> </p>
+</li>
+</ul>
+<p>​          开头插入的变量。 </p>
+</blockquote>
+<p><strong>array_reverse</strong>  (  <code>array</code> , <code>[preserve_keys]</code>)</p>
+<blockquote>
+<p>参数：</p>
+<ul>
+<li><p><code>array</code></p>
+<p>输入的数组。 </p>
+</li>
+<li><p><code>preserve_keys</code></p>
+<p>如果设置为 <strong>TRUE</strong> 会保留数字的键。       </p>
+<p>非数字的键则不受这个设置的影响，总是会被保留。 </p>
+</li>
+</ul>
+</blockquote>
+<p><strong>array_merge</strong> ( <code>array1</code> , <code>[array2...]</code> )</p>
+<blockquote>
+<p>参数：</p>
+<ul>
+<li><p><code>array1</code></p>
+<p>要合并的第一个数组。</p>
+</li>
+<li><p><code>array...</code></p>
+<p>要合并的其他数组。 </p>
+</li>
+</ul>
+</blockquote>
+<p><strong>in_array</strong> ( <code>needle</code> ,  <code>haystack</code> , <code>strict</code> )</p>
+<blockquote>
+<p>参数：</p>
+<ul>
+<li><p><code>needle</code></p>
+<p>待搜索的值。 </p>
+</li>
+<li><p><code>haystack</code></p>
+<p>此数组。</p>
+</li>
+<li><p><code>strict</code></p>
+<p>如果第三个参数 strict 的值为<strong>TRUE</strong> 则 in_array() 函数还会检查 <strong>needle</strong>的类型是否和<strong>haystack</strong>中的相同。 </p>
+</li>
+</ul>
+</blockquote>
+<p><strong>array_search</strong> ( <code>needle</code> ,  <code>haystack</code> , <code>strict</code> )</p>
+<blockquote>
+<p>参数：</p>
+<ul>
+<li><p><code>needle</code></p>
+<p>待搜索的值。 </p>
+</li>
+<li><p><code>haystack</code></p>
+<p>此数组。</p>
+</li>
+<li><p><code>strict</code></p>
+<p>如果可选的第三个参数 strict 为 <strong>TRUE</strong>，则<strong>array_search()</strong> 将在<strong>haystack</strong>      中检查完全相同的元素。这意味着同样严格比较<strong>haystack</strong>里<strong>needle</strong>的类型，并且对象需是同一个实例。  </p>
+</li>
+</ul>
+</blockquote>
+<p><strong>array_key_exists</strong> ( <code>key</code> ,  <code>array</code> )</p>
+<blockquote>
+<p>参数：</p>
+<ul>
+<li><p><code>key</code></p>
+<p>要检查的键。 </p>
+</li>
+<li><p><code>array</code></p>
+<p>一个数组，包含待检查的键。 </p>
+</li>
+</ul>
+</blockquote>
+<p><strong>isset</strong> ( <code>var1</code> , <code>[var2...]</code> )</p>
+<blockquote>
+<p>参数：</p>
+<ul>
+<li><p><code>var</code></p>
+<p>要检查的变量。 </p>
+</li>
+<li><p><code>var...</code></p>
+<p>其他变量。 </p>
+</li>
+</ul>
+</blockquote>
+</blockquote>
+<h4 id="提取信息"><a href="#提取信息" class="headerlink" title="提取信息"></a>提取信息</h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>count</strong>()</td>
+<td>获取数组元素的总个数</td>
+</tr>
+<tr>
+<td><strong>array_keys</strong>()</td>
+<td>提取下标形成新的数组。已知数组的值 返回坐标</td>
+</tr>
+<tr>
+<td><strong>array_values</strong>( <code>arr</code> )</td>
+<td>提取数组的所有元素的值形成新的数组。重新规划下标</td>
+</tr>
+<tr>
+<td><strong>max</strong>( <code>var1</code> , <code>var2</code>…)</td>
+<td>返回一个数组中的最大值，或者几个指定值中的最大值。</td>
+</tr>
+<tr>
+<td><strong>min</strong>( <code>var1</code> , <code>var2</code>…)</td>
+<td>返回一个数组中的最小值，或者几个指定值中的最小值。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>函数详情：</strong></p>
+<blockquote>
+<p><strong>count</strong> ( <code>array_or_countable</code>  , <code>[mode]</code>  )</p>
+<blockquote>
+<p>参数：</p>
+<ul>
+<li><p><code>array_or_countable</code></p>
+<p>数组或者<strong>Countable</strong>对象。 </p>
+</li>
+<li><p><code>mode</code></p>
+<p>如果可选的 mode 参数设为1,count() 将递归地对数组计数。对计算多维数组的所有单元尤其有用。 </p>
+</li>
+</ul>
+</blockquote>
+<p><strong>array_keys</strong> ( <code>array</code> , <code>[search_value]</code> , <code>[strict]</code> )</p>
+<blockquote>
+<p>参数：</p>
+<ul>
+<li><p><code>array</code></p>
+<p>必需。规定数组。 </p>
+</li>
+<li><p><code>search_value</code></p>
+<p>可选。为查找的值。如果没指定这个参数，返回数组的所有键。</p>
+</li>
+<li><p><code>strict</code> </p>
+<p>可选。与 value 参数一起使用。可能的值：</p>
+<ul>
+<li>true - 返回带有指定键值的键名。依赖类型，数字 5 与字符串 “5” 是不同的。</li>
+<li>false - 默认值。不依赖类型，数字 5 与字符串 “5” 是相同的。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</blockquote>
+<h4 id="数组和变量转换"><a href="#数组和变量转换" class="headerlink" title="数组和变量转换"></a>数组和变量转换</h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>extract</strong>($arr)</td>
+<td>把元素转换成变量导入到当前的符号表 ，键名当变量名，值作为变量值</td>
+</tr>
+<tr>
+<td><strong>compact</strong>(var1,var2,var3)</td>
+<td>创建一个包含变量名和它们的值的数组。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>函数详情：</strong></p>
+<blockquote>
+<p><strong>extract</strong> ( <code>array</code> , <code>[flags]</code> , <code>[prefix]</code> )</p>
+<blockquote>
+<p>参数：</p>
+<ul>
+<li><p><code>array</code></p>
+<p>必需。规定要使用的数组。 </p>
+</li>
+<li><p><code>flags</code></p>
+<p>可选。该函数将检查每个键名是否为合法的变量名，同时也检查和符号表中已存在的变量名是否冲突。对不合法和冲突的键名的处理将根据此参数决定。</p>
+<p>可能的值：</p>
+<ul>
+<li>EXTR_OVERWRITE - 默认。如果有冲突，则覆盖已有的变量。</li>
+<li>EXTR_SKIP - 如果有冲突，不覆盖已有的变量。</li>
+<li>EXTR_PREFIX_SAME - 如果有冲突，在变量名前加上前缀 prefix。</li>
+<li>EXTR_PREFIX_ALL - 给所有变量名加上前缀 prefix。</li>
+<li>EXTR_PREFIX_INVALID - 仅在不合法或数字变量名前加上前缀 prefix。</li>
+<li>EXTR_IF_EXISTS - 仅在当前符号表中已有同名变量时，覆盖它们的值。其它的都不处理。</li>
+<li>EXTR_PREFIX_IF_EXISTS - 仅在当前符号表中已有同名变量时，建立附加了前缀的变量名，其它的都不处理。</li>
+<li>EXTR_REFS - 将变量作为引用提取。导入的变量仍然引用了数组参数的值。</li>
+</ul>
+</li>
+<li><p><code>prefix</code></p>
+<p>可选。如果 extract_rules 参数的值是 EXTR_PREFIX_SAME、EXTR_PREFIX_ALL、 EXTR_PREFIX_INVALID 或 EXTR_PREFIX_IF_EXISTS，则 prefix 是必需的。   </p>
+<p>该参数规定了前缀。前缀和数组键名之间会自动加上一个下划线。 </p>
+</li>
+</ul>
+</blockquote>
+</blockquote>
+<h4 id="分段和填充"><a href="#分段和填充" class="headerlink" title="分段和填充"></a>分段和填充</h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>array_slice</strong>( )</td>
+<td>将数组中的一段取出，返回数组中的选定部分。</td>
+</tr>
+<tr>
+<td><strong>array_splice</strong>()</td>
+<td>移除选定的元素并用新元素取代。返回被移除元素的数组。</td>
+</tr>
+<tr>
+<td><strong>array_chunk</strong>()</td>
+<td>把一个数组分割为新的数组块。</td>
+</tr>
+<tr>
+<td><strong>array_pad</strong>()</td>
+<td>将指定数量的带有指定值的元素插入到数组中。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>函数详情：</strong></p>
+<blockquote>
+<p><strong>array_slice</strong> ( <code>array</code> , <code>offset</code> , <code>[length]</code> , <code>[preserve_keys]</code> )</p>
+<blockquote>
+<p>参数：</p>
+<ul>
+<li><p><code>array</code></p>
+<p>必需。规定数组。 </p>
+</li>
+<li><p><code>offset</code></p>
+<p>必需。规定取出元素的开始位置。 从0开始，可指定负值。</p>
+</li>
+<li><p><code>length</code></p>
+<p>可选。规定被返回数组的长度。 </p>
+<ul>
+<li><p>如果该值设置为整数，则返回该数量的元素。</p>
+</li>
+<li><p>如果该值设置为负数，则函数将在举例数组末端这么远的地方终止取出。</p>
+</li>
+<li>如果该值未设置，则返回从 start 参数设置的位置开始直到数组末端的所有元素。 </li>
+</ul>
+</li>
+<li><p><code>preserve_keys</code></p>
+<p>可选。规定函数是保留键名还是重置键名。可能的值：</p>
+<ul>
+<li><p>true - 保留键名</p>
+</li>
+<li><p>false - 默认。重置键名</p>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p><strong>array_splice</strong> ( <code>input</code> ,  <code>offset</code> , <code>[length]</code> , <code>[replacement]</code> )</p>
+<blockquote>
+<p>参数：</p>
+<ul>
+<li><p><code>array</code></p>
+<p>必需。规定数组。 </p>
+</li>
+<li><p><code>offset</code></p>
+<p>必需。数值。规定删除元素的开始位置。 </p>
+</li>
+<li><p><code>length</code></p>
+<p>可选。规定被移除的元素个数，也是被返回数组的长度。 </p>
+<ul>
+<li>如果该值设置为正数，则移除该数量的元素。</li>
+<li>如果该值设置为负数，则移除从 start 到数组末端倒数 length 为止中间所有的元素。</li>
+<li>如果该值未设置，则移除从 start 参数设置的位置开始直到数组末端的所有元素。 </li>
+</ul>
+</li>
+<li><p><code>replacement</code></p>
+<p>可选。规定带有要插入原始数组中元素的数组。如果只有一个元素，则可以设置为字符串，不需要设置为数组。 </p>
+</li>
+</ul>
+</blockquote>
+<p><strong>array_chunk</strong> ( <code>array</code> , <code>size</code> , <code>[preserve_keys]</code> )</p>
+<blockquote>
+<p>参数：</p>
+<ul>
+<li><p><code>array</code></p>
+<p>必需。规定要使用的数组。 </p>
+</li>
+<li><p><code>size</code></p>
+</li>
+</ul>
+<p>​        必需。一个整数，规定每个新数组块包含多少个元素。 </p>
+<ul>
+<li><p><code>preserve_keys</code></p>
+<p>可选。可能的值：</p>
+<ul>
+<li>true - 保留原始数组中的键名。</li>
+<li>false - 默认。每个新数组块使用从零开始的索引。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p><strong>array_pad</strong> ( <code>array</code> , <code>size</code> , <code>value</code> )</p>
+<blockquote>
+<p>参数：</p>
+<ul>
+<li><p><code>array</code></p>
+<p>需要被填充的原始数组。 </p>
+</li>
+<li><p><code>size</code></p>
+<p>新数组的长度。如果将 size 参数设置为负数，该函数会在原始数组之前插入新的元素 </p>
+</li>
+<li><p><code>value</code></p>
+</li>
+</ul>
+<p>​         将被填充的值，只有在 array 的现有长度小于size 的长度时才有效。 </p>
+</blockquote>
+</blockquote>
+<h4 id="数组计算"><a href="#数组计算" class="headerlink" title="数组计算"></a>数组计算</h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>array_sum</strong>( <code>arr</code> )</td>
+<td>对数组内部的所有元素做求和运算 。非数值为0</td>
+</tr>
+<tr>
+<td><strong>array_product</strong> ( <code>arr</code> )</td>
+<td>求数组中所有值的积</td>
+</tr>
+<tr>
+<td><strong>array_diff</strong>( <code>array1</code>,<code>array2</code>…);</td>
+<td>比较数组，返回两个数组的差集 。（只比较键值）</td>
+</tr>
+<tr>
+<td><strong>array_diff_assoc</strong>(<code>array1</code>,<code>array2</code> …)</td>
+<td>比较数组，返回两个数组的差集（比较键名和键值）</td>
+</tr>
+<tr>
+<td><strong>array_intersect</strong>(<code>array1</code>,<code>array2</code> …）</td>
+<td>比较数组，返回两个数组的交集（只比较键值）。</td>
+</tr>
+<tr>
+<td><strong>array_intersect_assoc</strong>(<code>array1</code>,<code>array2</code> …）</td>
+<td>比较数组，返回两个数组的交集（比较键名和键值）。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="其他-1"><a href="#其他-1" class="headerlink" title="其他"></a>其他</h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>list</strong>( <code>var1</code>,<code>var2</code>…)</td>
+<td>把数组中的<strong>值</strong>赋给一些变量。 只对数组里的索引数组有效。从0起</td>
+</tr>
+<tr>
+<td><strong>range</strong>()</td>
+<td>按照指定字符范围构件数组</td>
+</tr>
+<tr>
+<td><strong>array_unique</strong>( )</td>
+<td>移除数组中重复的值。 返回过滤后的数组。</td>
+</tr>
+<tr>
+<td><strong>array_rand</strong>()</td>
+<td>从数组中随机选出一个或多个元素，返回键名。</td>
+</tr>
+<tr>
+<td><strong>shuffle</strong>( <code>array</code> )</td>
+<td>把数组中的元素按随机顺序重新排列。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>函数详情：</strong></p>
+<blockquote>
+<p><strong>range</strong> ( <code>start</code> , <code>end</code> , <code>[step]</code> )</p>
+<blockquote>
+<p>参数</p>
+<ul>
+<li><p><code>start</code></p>
+<p>必需。规定数组元素的最小值。 </p>
+</li>
+<li><p><code>end</code></p>
+<p>必需。规定数组元素的最大值。 </p>
+</li>
+<li><p><code>step</code></p>
+<p>可选。规定元素之间的步进制。默认是 1。 </p>
+</li>
+</ul>
+</blockquote>
+<p><strong>array_unique</strong> ( <code>array</code> , <code>sort_flags</code> )</p>
+<blockquote>
+<p>参数</p>
+<ul>
+<li><p><code>start</code></p>
+<p>必需。规定数组。 </p>
+</li>
+<li><p><code>sort_flags</code></p>
+<p>可选。规定排序类型。可能的值：</p>
+<ul>
+<li>SORT_STRING - 默认。把每一项作为字符串来处理。</li>
+<li>SORT_REGULAR - 把每一项按常规顺序排列（Standard ASCII，不改变类型）。</li>
+<li>SORT_NUMERIC - 把每一项作为数字来处理。</li>
+<li>SORT_LOCALE_STRING - 把每一项作为字符串来处理，基于当前区域设置（可通过setlocale() 进行更改）。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p><strong>array_rand</strong> ( <code>array</code> , <code>[num]</code> )</p>
+<p>参数</p>
+<ul>
+<li><code>start</code></li>
+</ul>
+<p>​        必需。规定数组。 </p>
+<ul>
+<li><p><code>num</code></p>
+<p>可选。规定返回多少个随机的元素。  </p>
+</li>
+</ul>
+</blockquote>
+<h3 id="时间日期函数-Date-Time"><a href="#时间日期函数-Date-Time" class="headerlink" title="时间日期函数(Date/Time)"></a>时间日期函数(Date/Time)</h3><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>date()</strong></td>
+<td>格式化本地日期和时间。</td>
+</tr>
+<tr>
+<td><strong>microtime</strong>( <code>get_as_float</code> )</td>
+<td>返回当前时间戳的微秒数。</td>
+</tr>
+<tr>
+<td><strong>mktime()</strong></td>
+<td>返回一个日期的时间戳。</td>
+</tr>
+<tr>
+<td><strong>strtotime()</strong></td>
+<td>将任何英文<strong>文本</strong>的日期或时间描述解析为 时间戳。</td>
+</tr>
+<tr>
+<td><strong>time</strong>( <code>void</code> )</td>
+<td>返回当前时间的时间戳。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>函数详情：</strong></p>
+<blockquote>
+<p><strong>date</strong> ( <code>format</code> , <code>timestamp</code> )</p>
+<p>参数</p>
+<ul>
+<li><p><code>format</code></p>
+<p>必需。规定输出日期字符串的格式。 </p>
+<p>| 字符               | 说明                                          | 返回值例子                                  |<br>| —————— | ——————————————— | ——————————————- |<br>| <strong>日</strong>             | <strong>—</strong>                                       | <strong>—</strong>                                     |<br>| d                  | 月份中的第几天，有前导零的 2 位数字           | 01 到 31                                    |<br>| D                  | 星期中的第几天，文本表示，3 个字母            | Mon 到 Sun                                  |<br>| <em>j</em>                | 月份中的第几天，没有前导零                    | 1 到 31                                     |<br>| l（”L”的小写字母） | 星期几，完整的文本格式                        | Sunday 到 Saturday                          |<br>| N                  | 格式数字表示的星期中的第几天                  | 1（表示星期一）到 7（表示星期天）           |<br>| S                  | 每月天数后面的英文后缀，2 个字符              | st，nd，rd         或者 th。可以和 j 一起用 |<br>| <strong>月</strong>             | <strong>—</strong>                                       | <strong>—</strong>                                     |<br>| F                  | 月份，完整的文本格式，例如 January 或者 March | January 到 December                         |<br>| m                  | 数字表示的月份，有前导零                      | 01 到 12                                    |<br>| M                  | 三个字母缩写表示的月份                        | Jan 到 Dec                                  |<br>| n                  | 数字表示的月份，没有前导零                    | 1 到 12                                     |<br>| <strong>年</strong>             | <strong>—</strong>                                       | <strong>—</strong>                                     |<br>| Y                  | 4 位数字完整表示的年份                        | 例如：1999 或 2003                          |<br>| <strong>时间</strong>           | <strong>—</strong>                                       | <strong>—</strong>                                     |<br>| A                  | 大写的上午和下午值                            | AM 或 PM                                    |<br>| h                  | 小时，12 小时格式，有前导零                   | 01 到 12                                    |<br>| H                  | 小时，24 小时格式，有前导零                   | 00 到 23                                    |<br>| i                  | 有前导零的分钟数                              | 00 到 59&gt;                                   |<br>| s                  | 秒数，有前导零                                | 00 到 59&gt;                                   |</p>
+</li>
+<li><p><code>timestamp</code></p>
+<p>可选。规定一个整数的 Unix 时间戳。默认是当前的本地时间time()。 </p>
+</li>
+</ul>
+<p><strong>mktime</strong> ( <code>[hour]</code> , <code>[minute]</code> , <code>[second]</code> , <code>[month]</code> , <code>[day]</code> , <code>[year]</code> , <code>[is_dst]</code> )</p>
+<p>参数</p>
+<ul>
+<li><p><code>hour</code></p>
+</li>
+<li><p><code>minute</code></p>
+</li>
+<li><p>……….</p>
+</li>
+<li><p><code>[is_dst]</code></p>
+<p>可选。如果时间在夏令时期间，则设置为 1，否则设置为 0，若未知则设置为 -1（默认）。</p>
+<p>如果未知，PHP 会试图找到自己（可能产生意外的结果）。 </p>
+<p><strong>注意：</strong>该参数在 PHP 5.1.0 中被废弃。取而代之使用的是新的时区处理特性。 </p>
+</li>
+</ul>
+<p><strong>strtotime </strong>( <code>time</code> , <code>[now]</code> )</p>
+<p>参数</p>
+<ul>
+<li><p><code>time</code></p>
+<p>必需。规定日期/时间字符串。 </p>
+</li>
+<li><p><code>now</code></p>
+<p>可选。规定用来计算返回值的时间戳。 </p>
+</li>
+</ul>
+</blockquote>
+<h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><h3 id="1-对目录操作"><a href="#1-对目录操作" class="headerlink" title="1. 对目录操作"></a>1. 对目录操作</h3><blockquote>
+<p>涉及的函数：</p>
+<p><strong>mkdir</strong>(新目录名[,  目录权限[,  是否递归创建]])      创建一个目录（make directory）</p>
+<p><strong>rmdir</strong>(目录全路径)      删除一个目录（remove directory）</p>
+<p><strong>rename</strong>(旧名字,  新名字)     给目录改名或转移目录</p>
+</blockquote>
+<h3 id="2-对文件操作"><a href="#2-对文件操作" class="headerlink" title="2. 对文件操作"></a>2. 对文件操作</h3><p><strong>PHP4相关文件操作</strong></p>
+<p>涉及的函数：</p>
+<blockquote>
+<p><strong>fopen</strong>(文件全路径,  打开模式)    打开一个文件</p>
+<p><strong>fread</strong>(打开的文件资源,  读取内容的长度)    读取文件中的内容</p>
+<p><strong>fwrite</strong>(打开的文件资源,  写入的内容)    向文件中写入内容</p>
+<p><strong>fclose</strong>(打开的文件资源)    关闭打开的文件</p>
+<p><strong>filesize</strong>(文件全路径)  获取文件的大小</p>
+</blockquote>
+<p><strong>PHP5相关文件操作</strong></p>
+<p>涉及的函数：</p>
+<blockquote>
+<p><strong>file_put_contents</strong>(文件全路径,  写入的内容[,  写入方式])      向文件中写入内容    写入方式可指定为FILE_APPEND</p>
+<p><strong>file_get_contents</strong>(文件全路径)      获得文件中的内容</p>
+</blockquote>
+<h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><p>登录：mysql -uroot -p</p>
+<h2 id="1-数据库操作-databases"><a href="#1-数据库操作-databases" class="headerlink" title="1. 数据库操作(databases)"></a>1. 数据库操作(databases)</h2><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>语法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>显示所有数据库</td>
+<td><strong>show</strong> databases;</td>
+</tr>
+<tr>
+<td>创建数据库</td>
+<td><strong>create</strong> database 数据库名;</td>
+</tr>
+<tr>
+<td>删除数据库</td>
+<td><strong>drop</strong> database 数据库名;</td>
+</tr>
+<tr>
+<td>选择数据库</td>
+<td><strong>use</strong> 数据库名;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-数据表操作-tables"><a href="#2-数据表操作-tables" class="headerlink" title="2. 数据表操作(tables)"></a>2. 数据表操作(tables)</h2><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>语法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>显示所有数据表</td>
+<td><strong>show tables</strong>;</td>
+</tr>
+<tr>
+<td>创建数据表</td>
+<td><strong>create table</strong> 表名( 字段1名  数据类型  属性, …);</td>
+</tr>
+<tr>
+<td>删除数据表</td>
+<td><strong>drop table</strong> 表名;</td>
+</tr>
+<tr>
+<td>显示表结构</td>
+<td><strong>desc</strong> 表名;</td>
+</tr>
+<tr>
+<td>显示建表语句</td>
+<td><strong>show create table 表名\G;</strong></td>
+</tr>
+<tr>
+<td>修改表属性 charset/engine</td>
+<td><strong>alter table 表名 charset=gbk;</strong></td>
+</tr>
+<tr>
+<td>修改表名,移动表</td>
+<td><strong>rename</strong> table 库名.旧表名 to 新库名.新表名;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-数据的基本操作-values"><a href="#3-数据的基本操作-values" class="headerlink" title="3. 数据的基本操作(values)"></a>3. 数据的基本操作(values)</h2><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>语法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>新增数据</td>
+<td>insert into 表名values \n (字段1)(字段2)….;</td>
+</tr>
+<tr>
+<td>查询数据</td>
+<td>select  字段列表  from  表名 字句;</td>
+</tr>
+<tr>
+<td>修改数据</td>
+<td>update  表名  set  字段1=字段1新值, 字段2=字段2新值 where;</td>
+</tr>
+<tr>
+<td>删除数据</td>
+<td>delete from 表名 where 条件语句;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-列（字段）类型设置"><a href="#4-列（字段）类型设置" class="headerlink" title="4. 列（字段）类型设置"></a>4. 列（字段）类型设置</h2><h3 id="整型类型"><a href="#整型类型" class="headerlink" title="整型类型"></a>整型类型</h3><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>大小</th>
+<th>有符号（最小值/最大值）</th>
+<th>无符号（最小值/最大值）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>tinyint</strong>(m)</td>
+<td>1个字节</td>
+<td>-128/127</td>
+<td>0/255</td>
+</tr>
+<tr>
+<td><strong>smallint</strong>(m)</td>
+<td>2个字节</td>
+<td>-32768/32767</td>
+<td>0/65535</td>
+</tr>
+<tr>
+<td><strong>mediumint</strong>(m)</td>
+<td>3个字节</td>
+<td>-8388608/8388607</td>
+<td>0/16777215</td>
+</tr>
+<tr>
+<td><strong>int</strong>(m)</td>
+<td>4个字节</td>
+<td>-2147483648/2147483647</td>
+<td>0/4294967295</td>
+</tr>
+<tr>
+<td><strong>bigint</strong>(m)</td>
+<td>8个字节</td>
+<td>-9223372036854775808/ 9223372036854775807</td>
+<td>0/18446744073709551615</td>
+</tr>
+</tbody>
+</table>
+<h3 id="小数类型"><a href="#小数类型" class="headerlink" title="小数类型"></a>小数类型</h3><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>名称</th>
+<th>大小</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>float</strong>(M, D)</td>
+<td>单精度数</td>
+<td>4个字节</td>
+<td>默认精度位数为6到7位左右</td>
+</tr>
+<tr>
+<td><strong>double</strong>(M, D)</td>
+<td>双精度数</td>
+<td>8个字节</td>
+<td>默认精度位数为16到17位左右</td>
+</tr>
+<tr>
+<td><strong>decimal</strong>(M, D)</td>
+<td>定点数</td>
+<td>变长,大致每9个数4个字节</td>
+<td>M最大为65默认为10；</td>
+</tr>
+</tbody>
+</table>
+<p>tips:M为总长度，D为小数位长度</p>
+<h3 id="时间日期型"><a href="#时间日期型" class="headerlink" title="时间日期型"></a>时间日期型</h3><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>显示格式</th>
+<th>取值</th>
+<th>大小</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DATETIME</strong></td>
+<td>YYYY-MM-DD HH:MM:SS</td>
+<td>1000-01-01 00:00:00到9999-12-31 23:59:59</td>
+<td>8个字节</td>
+</tr>
+<tr>
+<td><strong>TIMESTAMP</strong></td>
+<td>YYYY-MM-DD HH:MM:SS</td>
+<td>1970-01-01 00:00:00到2038-01-19 03:14:07</td>
+<td>4个字节</td>
+</tr>
+<tr>
+<td><strong>DATE</strong></td>
+<td>YYYY-MM-DD</td>
+<td>1000-01-01到9999-12-31</td>
+<td>3个字节</td>
+</tr>
+<tr>
+<td><strong>TIME</strong></td>
+<td>HH:MM:SS</td>
+<td>-838:59:59到838:59:59</td>
+<td>3个字节</td>
+</tr>
+<tr>
+<td><strong>YEAR</strong></td>
+<td>YYYY</td>
+<td>1901到2155</td>
+<td>1个字节</td>
+</tr>
+</tbody>
+</table>
+<h3 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h3><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>最大长度</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>char</strong>(M)定长</td>
+<td>定长字符类型：255个字符</td>
+<td>Char(M)，M表示字符个数</td>
+</tr>
+<tr>
+<td><strong>varchar</strong>(M) 变长</td>
+<td>变长字符类型：65535字节，但需要1-2个保存信息，同时由于记录的限制，实际最大值为65532</td>
+<td>编码不同字符数不同：   Gbk&lt;=32767   Utf8&lt;=21845</td>
+</tr>
+<tr>
+<td><strong>tinyText</strong>            <strong>text</strong>   <strong>mediumText</strong> <strong>longText</strong></td>
+<td>(2^8)    –&gt; 256字节                                                                                     (2^16)-1  –&gt; 65535字节，约64KB                                                                          (2^24)-1 –&gt; 16777215字节，约16M                                                                     (2^32)-1字节 –&gt; 4294967295字节，约4G</td>
+<td>定义时无需指定长度，将会自动计算</td>
+</tr>
+<tr>
+<td><strong>enum</strong></td>
+<td>枚举：数字65535</td>
+<td>内部存储是整型；字段只能是某一个值</td>
+</tr>
+<tr>
+<td><strong>set</strong></td>
+<td>集合：最多占8个字节，即64个状态值</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-列-字段-属性设置"><a href="#5-列-字段-属性设置" class="headerlink" title="5. 列(字段)属性设置"></a>5. 列(字段)属性设置</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>null</strong></td>
+<td>字段NULL属性的默认情况为可以使用NUL值，建表时可以指定not null设置为不使用NULL值。</td>
+</tr>
+<tr>
+<td><strong>default</strong></td>
+<td>为字段设置一个默认值。</td>
+</tr>
+<tr>
+<td><strong>primary key</strong></td>
+<td>让某个字段变成主键。一个表只能有唯一的一个主键。</td>
+</tr>
+<tr>
+<td><strong>auto_increment</strong></td>
+<td>设置自动增长。当前如果需要指定某个字段为自动增长属性的话，则这个字段需要是主键</td>
+</tr>
+<tr>
+<td><strong>unique</strong></td>
+<td>设置唯一键。如果某个字段被设置成了唯一键，那么，这个字段的值一定不能重复。一个表可以设置多个唯一键。</td>
+</tr>
+<tr>
+<td><strong>comment</strong></td>
+<td>指定列描述，列描述其实就是备注内容。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="6-修改列-字段"><a href="#6-修改列-字段" class="headerlink" title="6. 修改列(字段)"></a>6. 修改列(字段)</h2><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>语法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>向已有的一个表中添加字段</td>
+<td><strong>alter table</strong> 表名 <strong>add</strong> 新字段名 字段类型 [字段属性列表];</td>
+</tr>
+<tr>
+<td>删除已有表中的某个字段</td>
+<td><strong>alter table</strong> 表名 <strong>drop</strong> 字段名;</td>
+</tr>
+<tr>
+<td>改变已有表中某个字段的名字</td>
+<td><strong>alter table</strong> 表名 <strong>change</strong> 旧字段名 新字段名 新字段类型 [字段属性];</td>
+</tr>
+<tr>
+<td>修改表字段的类型或属性</td>
+<td><strong>alter table</strong> 表名 <strong>modify</strong> 字段名 字段新类型 [字段新属性列表];</td>
+</tr>
+</tbody>
+</table>
+<h2 id="7-子语句"><a href="#7-子语句" class="headerlink" title="7. 子语句"></a>7. 子语句</h2><table>
+<thead>
+<tr>
+<th>语法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>where</strong></td>
+<td>用于条件过滤，得到真实的结果。条件语句</td>
+</tr>
+<tr>
+<td><strong>group by</strong></td>
+<td>用于分组统计，常与聚合函数一起使用。在最终展示的数据中，不会出现group by后面指定字段值完全相等的情况，即使查询的数据中有相同的值，也只会显示一条。</td>
+</tr>
+<tr>
+<td><strong>having</strong></td>
+<td>功能上类似于where语句，负责在结果中再次进行条件过滤。</td>
+</tr>
+<tr>
+<td><strong>order by</strong></td>
+<td>用来按照指定的字段进行排序的。</td>
+</tr>
+<tr>
+<td><strong>limit</strong></td>
+<td>用来限制查询出来的记录的条数。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="8-函数"><a href="#8-函数" class="headerlink" title="8. 函数"></a>8. 函数</h2><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>count</strong>函数</td>
+<td>统计指定字段在表中的记录总条数，不统计null值。select count(*) from stu where age&gt;=13;</td>
+</tr>
+<tr>
+<td><strong>max</strong>函数</td>
+<td>统计指定字段数据的最大值。   select max(score) from stu where 1;</td>
+</tr>
+<tr>
+<td><strong>min</strong>函数</td>
+<td>统计指定字段数据的最小值。   select min(score) from stu where 1;</td>
+</tr>
+<tr>
+<td><strong>avg</strong>函数</td>
+<td>统计指定字段所有符合条件数据的平均值。select avg(score) from stu where 1;</td>
+</tr>
+<tr>
+<td><strong>sum</strong>函数</td>
+<td>统计指定字段所有符合条件数据的总和。    select sum(score) from stu where 1;</td>
+</tr>
+<tr>
+<td><strong>concat</strong>函数</td>
+<td>用指定的字符连接指定多个字段的数据。    select concat(name,’-‘,numb) from stu where 1;</td>
+</tr>
+</tbody>
+</table>
+<h1 id="MYSQLI扩展"><a href="#MYSQLI扩展" class="headerlink" title="MYSQLI扩展"></a>MYSQLI扩展</h1><h2 id="1-连库操作"><a href="#1-连库操作" class="headerlink" title="1. 连库操作"></a>1. 连库操作</h2><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>mysqli_connect</strong>(数据库ip地址,  帐号,  密码,  默认选择的数据库)</td>
+<td>登陆数据库+选择数据库</td>
+</tr>
+<tr>
+<td><strong>mysqli_set_charset</strong>(mysqli连接,  字符集编码)</td>
+<td>设置字符集操作</td>
+</tr>
+<tr>
+<td><strong>mysqli_select_db</strong>(mysqli连接, 数据库名)</td>
+<td>切换数据库</td>
+</tr>
+<tr>
+<td><strong>mysqli_close</strong>(mysqli连接)</td>
+<td>关闭数据库连接操作</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-设置-增删改-操作"><a href="#2-设置-增删改-操作" class="headerlink" title="2. 设置(增删改)操作"></a>2. 设置(增删改)操作</h2><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>mysqli_query</strong>(mysqli连接,  sql语句)</td>
+<td>使用MYSQLI实现设置操作增、删、改SQL语句操作。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-查询操作"><a href="#3-查询操作" class="headerlink" title="3. 查询操作"></a>3. 查询操作</h2><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>mysqli_query</strong>(mysqli连接,  sql语句)</td>
+<td>执行查询语句</td>
+</tr>
+<tr>
+<td><strong>mysqli_fetch_assoc</strong>(结果集)</td>
+<td>每次执行都只能获得一条数据；</td>
+</tr>
+<tr>
+<td><strong>mysqli_fetch_row</strong>(结果集)</td>
+<td>获得的是索引下标类型的数组。</td>
+</tr>
+<tr>
+<td><strong>mysqli_fetch_all</strong>(结果集[, 数组形态])</td>
+<td>获得的是关联和索引数组.MYSQLI_BOTH/ASSOC/NUM</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-辅助操作函数"><a href="#4-辅助操作函数" class="headerlink" title="4. 辅助操作函数"></a>4. 辅助操作函数</h2><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>mysqli_field_count</strong>(mysqli连接)</td>
+<td>返回最近一次查询语句查询数据中的总列数</td>
+</tr>
+<tr>
+<td><strong>mysqli_num_fields</strong>(结果集)</td>
+<td>获得查询的结果集中字段的个数</td>
+</tr>
+<tr>
+<td><strong>mysqli_num_rows</strong>(结果集)</td>
+<td>获得查询结果集中记录的总行数</td>
+</tr>
+<tr>
+<td><strong>mysqli_insert_id</strong>(mysqli连接)</td>
+<td>获得最近一次新增数据的主键id值</td>
+</tr>
+<tr>
+<td><strong>mysqli_errno</strong>(mysqli连接)</td>
+<td>获得错误的错误码值</td>
+</tr>
+<tr>
+<td><strong>mysqli_error</strong>(mysqli连接)</td>
+<td>获得错误的错误码值对应的错误信息</td>
+</tr>
+</tbody>
+</table>
+<h1 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h1><h2 id="1-请求头协议项："><a href="#1-请求头协议项：" class="headerlink" title="1. 请求头协议项："></a>1. 请求头协议项：</h2><blockquote>
+<p><strong>host</strong>：当前url中所要请求的服务器的主机名（域名）<br><strong>accept-encoding</strong>：是浏览器发给服务器,声明浏览器支持的压缩编码类型  比如gzip<br><strong>accept_charset</strong>：表示浏览器支持的字符集<br><strong>referer</strong>：表示，此次请求来自哪个网址<br><strong>accept-language</strong>：可以接收的语言类型，cn，en等<br><strong>cookie</strong>：如果之前当前请求的服务器在浏览器端设置了数据（cookie），那么当前浏览器再次请求该服务器的时候，就会把对应的数据带过去<br><strong>user-agent</strong>：用户代理，当前发起请求的浏览器的内核信息<br><strong>accept</strong>：表示浏览器可以接收的数据类型<br><strong>content-length</strong>（post）：只有post提交的时候才会有的请求头，显示的是当前要提交的数据的长度（字节）<br><strong>if-modified-since</strong>（get）：表示，在客户端向服务器请求某个资源文件时，询问此资源文件是否被修改过<br><strong>content-type</strong>（post）：用于定义网络文件的类型和网页的编码，决定浏览器将以什么形式、什么编码读取这个文件</p>
+</blockquote>
+<h2 id="2-响应头协议项："><a href="#2-响应头协议项：" class="headerlink" title="2. 响应头协议项："></a>2. 响应头协议项：</h2><blockquote>
+<p><strong>server</strong>：服务器主机信息</p>
+<p><strong>date</strong>：响应时间</p>
+<p><strong>last-modified</strong>：文件最后修改时间（对应请求中：if-modified-since）</p>
+<p><strong>content-length</strong>：响应主体的长度（字节）</p>
+<p><strong>content-type</strong>：响应内容的数据类型：text/html，image/png等</p>
+<p><strong>location</strong>：重定向，浏览器遇到这个选项，就立马跳转（不会解析后面的内容）</p>
+<p><strong>refresh</strong>：重定向（刷新），浏览器遇到这个选项就会准备跳转，刷新一般有时间限制，时间到了才跳转，浏览器会继续向下解析</p>
+<p><strong>content-encodeing</strong>：文件编码格式</p>
+<p><strong>cache-control</strong>：缓存控制，no-cached不要缓存</p>
+</blockquote>
+<h1 id="GD操作-画图"><a href="#GD操作-画图" class="headerlink" title="GD操作 (画图)"></a>GD操作 (画图)</h1><h2 id="1-创建画布"><a href="#1-创建画布" class="headerlink" title="1. 创建画布"></a>1. 创建画布</h2><p>涉及的函数：</p>
+<blockquote>
+<p><strong>imagecreate</strong>(宽，高)                                创建画布</p>
+<p><strong>imagecreatetruecolor</strong>(宽,高)                 创建一个真彩色画布</p>
+<p><strong>imagecreatefromjpeg</strong>(jpeg图片路径)   根据一张已有的jpeg图片创建画布</p>
+<p><strong>imagecreatefromgif</strong>(gif图片路径)         根据一张已有的gif图片创建画布</p>
+<p><strong>imagecreatefrompng</strong>(png图片路径)    根据一张已有的png图片创建画布</p>
+</blockquote>
+<h2 id="2-关闭画布"><a href="#2-关闭画布" class="headerlink" title="2. 关闭画布"></a>2. 关闭画布</h2><p>涉及的函数：</p>
+<blockquote>
+<p><strong>imagedestroy</strong>(画布资源)    销毁画布资源</p>
+</blockquote>
+<h2 id="3-图像输出"><a href="#3-图像输出" class="headerlink" title="3. 图像输出"></a>3. 图像输出</h2><p>涉及函数：</p>
+<blockquote>
+<p><strong>imagejpeg()</strong> 以jpeg的格式输出图片到浏览器或保存成文件</p>
+<p><strong>imagepng()</strong> 以png的格式输出图片到浏览器或保存成文件</p>
+<p><strong>imagegif()</strong> 以gif的格式输出图片到浏览器或保存成文件</p>
+</blockquote>
+<h2 id="4-画布内容相"><a href="#4-画布内容相" class="headerlink" title="4. 画布内容相"></a>4. 画布内容相</h2><p>涉及的函数：</p>
+<blockquote>
+<p><strong>imagecolorallocate</strong>(画布资源,  R色值,  G色值,  B色值)    分配一个颜色</p>
+<p><strong>imagefill</strong>(画布资源,  基点x坐标,  基点y坐标,  颜色)    向画布填充颜色</p>
+<p><strong>imageline</strong>(画布资源,  起点x坐标,  起点y坐标,  终点x坐标,  终点y坐标,  颜色)    画线段操作</p>
+<p><strong>imagerectangle</strong>(画布资源,  对角线起点x坐标,  对角线起点y坐标,  对角线终点x坐标,  对角线终点y坐标,  颜色)    画矩形</p>
+<p><strong>imagearc</strong>(画布资源,  圆心x坐标,  圆心y坐标,  椭圆宽,  椭圆高,  起点角度,  终点角度,  颜色)    画圆弧线段</p>
+<p><strong>imagestring</strong>(画布资源,  字体大小,  文字左上角x坐标,  文字左上角y坐标,  内容,  颜色)    根据系统字体写字</p>
+<p><strong>imagettftext</strong>(画布资源,  字体大小,  角度,  文字左下角x坐标,  文字左下角y坐标,  颜色,  字体路径,  内容)    根据ttf格式的字体写字</p>
+</blockquote>
+<h2 id="5-辅助相关操作"><a href="#5-辅助相关操作" class="headerlink" title="5. 辅助相关操作"></a>5. 辅助相关操作</h2><p>涉及的函数：</p>
+<blockquote>
+<p><strong>imagesx</strong>(画布资源)    获得图片的宽度</p>
+<p><strong>imagesy</strong>(画布资源)    获得图片的高度</p>
+<p><strong>getimagesize</strong>(图片路径)    获得图片的宽度和高度等信息</p>
+</blockquote>
+<h2 id="6-其他"><a href="#6-其他" class="headerlink" title="6. 其他"></a>6. 其他</h2><blockquote>
+<p><strong>imagecopymerge(）</strong>            水印图      拷贝并合并图像的一部分</p>
+<p><strong>imagecopyresampled()</strong>       缩略图      重采样拷贝部分图像并调整大小</p>
+</blockquote>
+<h1 id="PDO-操作数据库"><a href="#PDO-操作数据库" class="headerlink" title="PDO (操作数据库)"></a>PDO (操作数据库)</h1><h2 id="1-连库操作-1"><a href="#1-连库操作-1" class="headerlink" title="1. 连库操作"></a>1. 连库操作</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>__construct</strong>(基本参数,数据库账号,数据库密码)</td>
+<td>负责初始化连库基本操作(构造函数)</td>
+</tr>
+</tbody>
+</table>
+<p>连库 例子：</p>
+<blockquote>
+<p>$dsn = ‘mysql:host=localhost;port=3306;charset=utf8;dbname=test’;</p>
+<p>$pdo = new PDO($dsn,’root’,’123abc’);</p>
+</blockquote>
+<h2 id="2-设置操作-增删改"><a href="#2-设置操作-增删改" class="headerlink" title="2.设置操作(增删改)"></a>2.设置操作(增删改)</h2><p><strong>【PDO类中】</strong></p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>语法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>exec</strong>(SQL语句)</td>
+<td>执行增删改操作SQL语句</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-查询操作-1"><a href="#3-查询操作-1" class="headerlink" title="3. 查询操作"></a>3. 查询操作</h2><p><strong>【PDO类中】</strong></p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>query</strong> (SQL语句)</td>
+<td>执行查询操作SQL语句</td>
+</tr>
+</tbody>
+</table>
+<p><strong>【PDOStratement类中】</strong></p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>fetch</strong> (解析类型)</td>
+<td>一次解析一条数据；获得的是关联和索引数组. PDO::FETCH_BOTH / ASSOC / NUM</td>
+</tr>
+<tr>
+<td><strong>fetchAll</strong>（）</td>
+<td>一次性解析所有数据</td>
+</tr>
+<tr>
+<td><strong>rowCount</strong>（）</td>
+<td>获取查询出来的数据的总行数</td>
+</tr>
+<tr>
+<td><strong>columnCount</strong>（）</td>
+<td>获取查询出来的数据的总列数</td>
+</tr>
+<tr>
+<td><strong>fetchObject</strong>（）</td>
+<td>一次解析一行数据。数据为对象类型</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-事务"><a href="#4-事务" class="headerlink" title="4. 事务"></a>4. 事务</h2><p><strong>【PDO类中】</strong> </p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>beginTransaction</strong>()</td>
+<td>开启事务</td>
+</tr>
+<tr>
+<td><strong>commit</strong>()</td>
+<td>提交事务</td>
+</tr>
+<tr>
+<td><strong>rollBack</strong>()</td>
+<td>回滚事务</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-预处理技术"><a href="#5-预处理技术" class="headerlink" title="5. 预处理技术"></a>5. 预处理技术</h2><p><strong>【PDO类中】</strong></p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>prepare</strong>  (SQL语句)</td>
+<td>生成预处理语句</td>
+</tr>
+</tbody>
+</table>
+<p><strong>【PDOStatement类中】</strong></p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>bindParam</strong>  (参数序号 ,$参数值)</td>
+<td>绑定参数</td>
+</tr>
+<tr>
+<td><strong>execute</strong> ([参数集合])</td>
+<td>执行预处理语句</td>
+</tr>
+</tbody>
+</table>
+<p>预处理方式：</p>
+<ol>
+<li>使用序号绑定参数的方式实现一次；</li>
+</ol>
+<blockquote>
+<p>#1. 准备预处理语句<br>$sql = ‘insert into cz_user values (null, <strong>?, ?</strong>)’;<br>$pdostatement = $pdo-&gt;<strong>prepare</strong>($sql);</p>
+<p>#2. 绑定参数<br>$name = ‘小霸王’;<br>$pwd = ‘11aacc’;</p>
+<p>$pdostatement-&gt;bindParam(<strong>1, $name</strong>);//1表示对应着第一个占位符<br>$pdostatement-&gt;bindParam(<strong>2, $pwd</strong>);//2表示对应着第二个占位符</p>
+<p>#3. 执行预处理语句<br>$pdostatement-&gt;execute();</p>
+</blockquote>
+<ol start="2">
+<li>使用”：字段名”绑定参数的方式实现一次；</li>
+</ol>
+<blockquote>
+<p>#1. 准备预处理语句<br>$sql = ‘insert into cz_user values (null, <strong>:name, :pwd</strong>)’;//使用“:”+字段名的形式构建占位符<br>$pdostatement = $pdo-&gt;<strong>prepare</strong>($sql);</p>
+<p>#2. 绑定参数<br>$name = ‘小笨笨’;<br>$pwd = ‘778899’;</p>
+<p>$pdostatement-&gt;bindParam(<strong>‘:name’, $name</strong>);//绑定参数时需要指定具体的占位符名字<br>$pdostatement-&gt;bindParam(<strong>‘:pwd’, $pwd</strong>);</p>
+<p>#3. 执行预处理语句<br>$pdostatement-&gt;<strong>execute</strong>();</p>
+</blockquote>
+<ol start="3">
+<li>使用数组绑定参数的方式实现一次；</li>
+</ol>
+<blockquote>
+<p>#1. 准备预处理语句<br>$sql = ‘insert into cz_user values (null, <strong>:name, :pwd</strong>)’;//使用“:”+字段名的形式构建占位符<br>$pdostatement = $pdo-&gt;<strong>prepare</strong>($sql);</p>
+<p>#2. 绑定参数<br>$arr = [<br>    ‘:name’ =&gt; ‘小可爱’,<br>    ‘:pwd’ =&gt; ‘119900’,<br>];</p>
+<p>#3. 执行预处理语句<br>$pdostatement-&gt;<strong>execute($arr)</strong>;//直接指定绑定参数的数组作为execute方法的参数即可</p>
+</blockquote>
+<h2 id="6-异常处理"><a href="#6-异常处理" class="headerlink" title="6. 异常处理"></a>6. 异常处理</h2><p><strong>【PDO类】</strong></p>
+<p>方法：</p>
+<blockquote>
+<p><strong>setAttribute</strong>(属性名， 属性值)      设置PDO的模式属性</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>属性名，属性值</th>
+<th>处理模式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING</td>
+<td>将错误处理模式设置为警告模式</td>
+</tr>
+<tr>
+<td>PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION</td>
+<td>将错误处理模式设置为异常处理模式</td>
+</tr>
+</tbody>
+</table>
+<p><strong>【PDOException类】</strong></p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>getMessage</strong>()</td>
+<td>获取异常消息内容</td>
+</tr>
+<tr>
+<td><strong>getCode</strong>()</td>
+<td>获取异常代码；错误的错误码值</td>
+</tr>
+<tr>
+<td><strong>getLine</strong>()</td>
+<td>获取创建的异常所在文件中的行号</td>
+</tr>
+<tr>
+<td><strong>getFile</strong>()</td>
+<td>获取创建异常时的程序文件名称</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="SMARTY-模板技术"><a href="#SMARTY-模板技术" class="headerlink" title="SMARTY (模板技术)"></a>SMARTY (模板技术)</h1><p><strong>【smarty类】</strong></p>
+<table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>include</strong> ‘xxx/<strong>Smarty.class.php</strong>‘;</td>
+<td>引入SMARTY核心类文件</td>
+</tr>
+<tr>
+<td>$smarty = <strong>new Smarty</strong>;</td>
+<td>实例化Smarty类的对象</td>
+</tr>
+<tr>
+<td>$smarty-&gt;<strong>assign</strong>(变量名,变量值);</td>
+<td>分配模板变量</td>
+</tr>
+<tr>
+<td>$smarty-&gt;<strong>display</strong>（模板名);</td>
+<td>渲染模板</td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-程序设计-在PHP里"><a href="#1-程序设计-在PHP里" class="headerlink" title="1. 程序设计(在PHP里)"></a>1. 程序设计(在PHP里)</h2><h3 id="定界符"><a href="#定界符" class="headerlink" title="定界符"></a>定界符</h3><p><strong>【smarty类】</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>left_delimiter</strong></td>
+<td>负责控制左定界符</td>
+</tr>
+<tr>
+<td><strong>right_delimiter</strong></td>
+<td>负责控制右定界符</td>
+</tr>
+</tbody>
+</table>
+<h3 id="目录设置"><a href="#目录设置" class="headerlink" title="目录设置"></a>目录设置</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>setTemplateDir</strong>(‘目录’)</td>
+<td>修改模板目录</td>
+</tr>
+<tr>
+<td><strong>setCompileDir</strong>(‘目录’)</td>
+<td>修改编译目录</td>
+</tr>
+</tbody>
+</table>
+<h3 id="常量设置"><a href="#常量设置" class="headerlink" title="常量设置"></a>常量设置</h3><table>
+<thead>
+<tr>
+<th>定义</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>define</strong>(<strong>‘SMARTY_DIR’</strong>,’路径’);</td>
+<td>定义常量</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="2-模板设计-在HTML里"><a href="#2-模板设计-在HTML里" class="headerlink" title="2. 模板设计(在HTML里)"></a>2. 模板设计(在HTML里)</h2><h3 id="模板注释"><a href="#模板注释" class="headerlink" title="模板注释"></a>模板注释</h3><blockquote>
+<p>语法：<strong>{*</strong>注释内容<strong>*}</strong> </p>
+</blockquote>
+<h3 id="模板变量"><a href="#模板变量" class="headerlink" title="模板变量"></a>模板变量</h3><h4 id="1-简单模板变量"><a href="#1-简单模板变量" class="headerlink" title="1. 简单模板变量"></a>1. 简单模板变量</h4><blockquote>
+<p>语法：<strong>{$变量名}</strong>         变量名为在PHP中<strong>assign(变量名,变量值)</strong>的变量名</p>
+</blockquote>
+<h4 id="2-数组模板变量"><a href="#2-数组模板变量" class="headerlink" title="2. 数组模板变量"></a>2. 数组模板变量</h4><blockquote>
+<p>语法：<strong>{$数组名.数组下标}</strong>         数组下标<strong>不加 ‘ ‘</strong></p>
+</blockquote>
+<h4 id="3-对象模板变量"><a href="#3-对象模板变量" class="headerlink" title="3. 对象模板变量"></a>3. 对象模板变量</h4><blockquote>
+<p>语法：<strong>{$对象名-&gt;属性}</strong> 或  <strong>{$对象名-&gt;方法名()}</strong>       </p>
+</blockquote>
+<h3 id="系统变量"><a href="#系统变量" class="headerlink" title="系统变量"></a>系统变量</h3><p>SMARTY系统变量：</p>
+<table>
+<thead>
+<tr>
+<th>变量输出方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>{$smarty.get.变量名称}</strong></td>
+<td>直接获取GET参数数据</td>
+</tr>
+<tr>
+<td><strong>{$smarty.post.变量名称}</strong></td>
+<td>直接获取POST参数数据</td>
+</tr>
+<tr>
+<td><strong>{$smarty.cookies.变量名称}</strong></td>
+<td>直接获取COOKIE参数数据</td>
+</tr>
+<tr>
+<td><strong>{$smarty.session.变量名称}</strong></td>
+<td>直接获取SESSION参数数据</td>
+</tr>
+<tr>
+<td><strong>{$smarty.const.常量名称}</strong></td>
+<td>直接获取常量参数数据</td>
+</tr>
+<tr>
+<td><strong>{$smarty.now}</strong></td>
+<td>直接获取当前时间的时间戳</td>
+</tr>
+</tbody>
+</table>
+<h3 id="内置函数"><a href="#内置函数" class="headerlink" title="内置函数"></a>内置函数</h3><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>foreach</strong></td>
+<td>遍历数组</td>
+</tr>
+<tr>
+<td><strong>foreachelse</strong></td>
+<td>当数组为空或不存在时执行</td>
+</tr>
+<tr>
+<td>{<strong>$smarty.foreach.</strong>foreach循环名.<strong>index</strong>}</td>
+<td>获得当前的索引值</td>
+</tr>
+<tr>
+<td>{<strong>$smarty.foreach.</strong>foreach循环名<strong>.iteration</strong>}</td>
+<td>获得当前遍历的次数</td>
+</tr>
+<tr>
+<td><strong>include</strong></td>
+<td>引入其他<strong>模板</strong>文件</td>
+</tr>
+<tr>
+<td><strong>if…elseif…else</strong></td>
+<td>在模板中实现if..elseif..else分支</td>
+</tr>
+<tr>
+<td><strong>literal</strong></td>
+<td>包裹的部分不会被当成smarty解析。</td>
+</tr>
+<tr>
+<td><strong>ldelim</strong>    <strong>rdelim</strong></td>
+<td>左(右)定界符符号 直接使用 {ldelim}</td>
+</tr>
+<tr>
+<td><strong>{date(‘Y-m-d H:i:s’,日期)}</strong></td>
+<td>日期格式为’Y-m-d H:i:s’</td>
+</tr>
+<tr>
+<td><strong>for</strong></td>
+<td>实现循环</td>
+</tr>
+</tbody>
+</table>
+<p>用法：</p>
+<blockquote>
+<p><strong>1. foreach</strong>：</p>
+<p>{foreach from=$数组名 key=’键名’  item=’变量名’  name=’此数组的别名’}<br>       foreach遍历结构体<br>{/foreach}</p>
+<p><strong>2. foreachelse</strong>：</p>
+<p>{foreach …}</p>
+<p>​    foreach遍历结构体</p>
+<p>{foreachelse}</p>
+<p>​    foreachelse做的事</p>
+<p>{/foreach}</p>
+<p><strong>3. {$smarty.foreach.foreach循环名.index}</strong>：表示获得当前的索引值</p>
+<p><strong>4. {$smarty.foreach.foreach循环名.iteration}</strong>    表示获得当前遍历的次数</p>
+<p><strong>5.include</strong>:</p>
+<p>{include  file=’模板路径’  另外模板的变量名1=变量的值1…另外模板的变量名n=变量的值n}</p>
+<p><strong>5. if…elseif…else</strong>:</p>
+<p>{if xxx}</p>
+<p>{elseif xxx}</p>
+<p>{else}</p>
+<p>{/if}</p>
+<p><strong>6.literal</strong>：</p>
+<p>{literal}</p>
+<p>…</p>
+<p>{/literal}</p>
+<p><strong>7. for :</strong></p>
+<p>{for $i=0 to $变量(或数字) step 数字}              //step表示隔几个数字输出</p>
+<p>​    循环体</p>
+<p>{/for}</p>
+</blockquote>
+<h3 id="变量调节器"><a href="#变量调节器" class="headerlink" title="变量调节器"></a>变量调节器</h3><p>基本语法：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;变量名|名<span class="number">1</span>:参数<span class="number">1</span>:参数<span class="number">2</span>….|名<span class="number">2</span>:参数<span class="number">1</span>:参数<span class="number">2</span>….&#125;</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>调节器名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>cat</strong></td>
+<td>拼接字符串  {$变量1\</td>
+<td>cat<strong>:</strong>$变量2}</td>
+</tr>
+<tr>
+<td><strong>date_format</strong></td>
+<td>将时间戳格式化为年月日时间日期格式；{时间戳\</td>
+<td>date_format:’%Y-%m-%d %H:%M:%S’}</td>
+</tr>
+<tr>
+<td><strong>default</strong></td>
+<td>指定默认值  {$变量1\</td>
+<td>default:默认值内容}</td>
+</tr>
+<tr>
+<td><strong>lower  upper</strong></td>
+<td>字母转换   {字符串\</td>
+<td>lower/upper}</td>
+</tr>
+<tr>
+<td><strong>escape</strong></td>
+<td>将变量中的html标签当成普通字符串输出。{字符串名\</td>
+<td>escape}  被包在字符串里</td>
+</tr>
+<tr>
+<td><strong>nl2br</strong></td>
+<td>将文件的回车换行转换为html的\<br>标签 {字符串名\</td>
+<td>nl2br}  在<strong>PHP</strong>中用：$str1 =”请看接下来另起一行\r\n哈哈，我成功到了第二行”;</td>
+</tr>
+<tr>
+<td><strong>strip_tags</strong></td>
+<td>将html标签字符直接去除 {字符串名\</td>
+<td><strong>strip_tags</strong>}  在<strong>PHP</strong>中用 被包在字符串里</td>
+</tr>
+</tbody>
+</table>
+<h1 id="MVC-编程方式"><a href="#MVC-编程方式" class="headerlink" title="MVC (编程方式)"></a>MVC (编程方式)</h1><p><strong>M</strong> –&gt; Model</p>
+<p><strong>V</strong> –&gt; View</p>
+<p><strong>C</strong> –&gt; Controller</p>
+<p><strong>Model表示模型层</strong>，负责数据业务规则的处理，凡是跟数据操作有关的内容都属于数据逻辑，只要与SQL指令有关，那么都属于模型（数据逻辑）；</p>
+<p><strong>View表示视图层</strong>，负责展示数据，其实就是我们看到的页面，也就是模板template（模板），用来承载数据的容器，通常是HTML文件（显示[HTML]，美化[CSS]和效果[JavaScript]）；</p>
+<p><strong>Controller表示控制器</strong>，也叫作模块（Module），负责接受用户请求，并调用相应的模型和视图处理和展示业务，是用来与用户直接接触的脚本代码（浏览器直接提交给PHP的脚本对象），判断用户操作的逻辑性，在需要的时候，他可以调用模型操作数据，也可以调用视图展示页面。</p>
+<p><img src="D:\PHP\note\二\mn_img\img_d22\5.jpg" alt="1536015759201"></p>
+<p><img src="D:\PHP\note\二\mn_img\img_d22\6.jpg" alt="1536028681032"></p>
+<h1 id="TP5框架开发"><a href="#TP5框架开发" class="headerlink" title="TP5框架开发"></a>TP5框架开发</h1><p>目录结构：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">project  应用部署目录</span><br><span class="line"></span><br><span class="line">├─application           应用目录（可设置）</span><br><span class="line">│  ├─common             公共模块目录（可更改）</span><br><span class="line">│  ├─index              模块目录(可更改)</span><br><span class="line">│  │  ├─config.php      模块配置文件</span><br><span class="line">│  │  ├─common.php      模块函数文件</span><br><span class="line">│  │  ├─controller      控制器目录</span><br><span class="line">│  │  ├─model           模型目录</span><br><span class="line">│  │  ├─view            视图目录</span><br><span class="line">│  │  └─ ...            更多类库目录</span><br><span class="line">│  ├─command.php        命令行工具配置文件</span><br><span class="line">│  ├─common.php         应用公共（函数）文件</span><br><span class="line">│  ├─config.php         应用（公共）配置文件</span><br><span class="line">│  ├─database.php       数据库配置文件</span><br><span class="line">│  ├─tags.php           应用行为扩展定义文件</span><br><span class="line">│  └─route.php          路由配置文件</span><br><span class="line">├─extend                扩展类库目录（可定义）</span><br><span class="line">├─public                WEB 部署目录（对外访问目录）</span><br><span class="line">│  ├─static             静态资源存放目录(css,js,image)</span><br><span class="line">│  ├─index.php          应用入口文件</span><br><span class="line">│  ├─router.php         快速测试文件</span><br><span class="line">│  └─.htaccess          用于 apache 的重写</span><br><span class="line">├─runtime               应用的运行时目录（可写，可设置）</span><br><span class="line">├─vendor                第三方类库目录（Composer）</span><br><span class="line">├─thinkphp              框架系统目录</span><br><span class="line">│  ├─lang               语言包目录</span><br><span class="line">│  ├─library            框架核心类库目录</span><br><span class="line">│  │  ├─think           Think 类库包目录</span><br><span class="line">│  │  └─traits          系统 Traits 目录</span><br><span class="line">│  ├─tpl                系统模板目录</span><br><span class="line">│  ├─.htaccess          用于 apache 的重写</span><br><span class="line">│  ├─.travis.yml        CI 定义文件</span><br><span class="line">│  ├─base.php           基础定义文件</span><br><span class="line">│  ├─composer.json      composer 定义文件</span><br><span class="line">│  ├─console.php        控制台入口文件</span><br><span class="line">│  ├─convention.php     惯例配置文件</span><br><span class="line">│  ├─helper.php         助手函数文件（可选）</span><br><span class="line">│  ├─LICENSE.txt        授权说明文件</span><br><span class="line">│  ├─phpunit.xml        单元测试配置文件</span><br><span class="line">│  ├─README.md          README 文件</span><br><span class="line">│  └─start.php          框架引导文件</span><br><span class="line">├─build.php             自动生成定义文件（参考）</span><br><span class="line">├─composer.json         composer 定义文件</span><br><span class="line">├─LICENSE.txt           授权说明文件</span><br><span class="line">├─README.md             README 文件</span><br><span class="line">├─think                 命令行入口文件</span><br></pre></td></tr></table></figure>
+<h2 id="前期处理"><a href="#前期处理" class="headerlink" title="前期处理"></a>前期处理</h2><h3 id="配置默认项"><a href="#配置默认项" class="headerlink" title="配置默认项"></a>配置默认项</h3><p>进入框架的应用配置文件application/config.php </p>
+<h4 id="应用设置"><a href="#应用设置" class="headerlink" title="应用设置"></a>应用设置</h4><p><img src="/images/9.jpg" alt="9"></p>
+<p><img src="/images/12.jpg" alt="12"></p>
+<p><img src="/images/10.jpg" alt="10"></p>
+<h4 id="模块设置"><a href="#模块设置" class="headerlink" title="模块设置"></a>模块设置</h4><p><img src="/images/13.jpg" alt="13"></p>
+<h4 id="URL设置"><a href="#URL设置" class="headerlink" title="URL设置"></a>URL设置</h4><p><img src="/images/11.jpg" alt="11"></p>
+<h4 id="自定义配置"><a href="#自定义配置" class="headerlink" title="自定义配置"></a>自定义配置</h4><p><img src="/images/14.jpg" alt="14"></p>
+<hr>
+<h3 id="配置数据库"><a href="#配置数据库" class="headerlink" title="配置数据库"></a>配置数据库</h3><p>在application/database.php文件中配置数据库相应参数 </p>
+<p><img src="/images/6.jpg" alt="6"></p>
+<p><img src="/images/7.jpg" alt="7"></p>
+<h3 id="配置路由"><a href="#配置路由" class="headerlink" title="配置路由"></a>配置路由</h3><p>进入public/.htaccess</p>
+<p><img src="/images/8.jpg" alt="8"></p>
+<h3 id="创建目录"><a href="#创建目录" class="headerlink" title="创建目录"></a>创建目录</h3><p><img src="/images/15.jpg" alt="15"></p>
+<h3 id="设置路由"><a href="#设置路由" class="headerlink" title="设置路由"></a>设置路由</h3><p>到application/route.php</p>
+<p><img src="/images/16.jpg" alt="16"></p>
+<h3 id="资源管理"><a href="#资源管理" class="headerlink" title="资源管理"></a>资源管理</h3><p>把资源放到public/static/admin目录</p>
+<p><img src="/images/18.jpg" alt="18"></p>
+<p>修改资源路径</p>
+<p><img src="/images/17.jpg" alt="17"></p>
+<h2 id="登录登出处理"><a href="#登录登出处理" class="headerlink" title="登录登出处理"></a>登录登出处理</h2><h3 id="登录处理"><a href="#登录处理" class="headerlink" title="登录处理"></a>登录处理</h3><ul>
+<li><p>引用User model 并创建PublicController/login方法</p>
+<p><img src="/images/27.jpg" alt="27"></p>
+</li>
+<li><p>在model/User.php中加入checkUser()方法</p>
+<p><img src="/images/28.jpg" alt="28"></p>
+</li>
+</ul>
+<h3 id="退出处理"><a href="#退出处理" class="headerlink" title="退出处理"></a>退出处理</h3><p>按退出键退出账号方法：</p>
+<ul>
+<li><p>清除session</p>
+</li>
+<li><p>重定向登录页</p>
+<p><img src="/images/19.jpg" alt="19"></p>
+</li>
+</ul>
+<ul>
+<li><p>设置公共区域防翻墙 创建CommonController</p>
+<p><img src="/images/20.jpg" alt="20"></p>
+</li>
+</ul>
+<ul>
+<li>让需要登录后才能进入的页面继承CommonController</li>
+</ul>
+<h3 id="权限防翻墙"><a href="#权限防翻墙" class="headerlink" title="权限防翻墙"></a>权限防翻墙</h3><ul>
+<li><p>找到PublicController/login方法 检测入库数据的方法checkUser()</p>
+</li>
+<li><p>创建私有方法_initAuth 把拥有的权限写入session中</p>
+<p><img src="/images/29.jpg" alt="29"></p>
+</li>
+<li><p>进入left.html模板 (控制面板) 循环输出菜单功能</p>
+<p><img src="/images/30.jpg" alt="30"></p>
+</li>
+<li><p>进入CommonController</p>
+</li>
+<li></li>
+</ul>
+<h2 id="相关操作处理"><a href="#相关操作处理" class="headerlink" title="相关操作处理"></a>相关操作处理</h2><h3 id="无限极分类"><a href="#无限极分类" class="headerlink" title="无限极分类"></a>无限极分类</h3><ul>
+<li><p>实例化模型并调用getSonsXXX()方法</p>
+<p><img src="/images/21.jpg" alt="21"></p>
+</li>
+<li><p>在该<strong>模板</strong>中创建方法getSonsXXX() 并进行无限极分类</p>
+<p><img src="/images/21.jpg" alt="21"></p>
+</li>
+</ul>
+<h3 id="处理数据子级关系"><a href="#处理数据子级关系" class="headerlink" title="处理数据子级关系"></a>处理数据子级关系</h3><p><img src="/images/25.jpg" alt="25"></p>
+<p><img src="/images/26.jpg" alt="26"></p>
+<h3 id="特殊报错"><a href="#特殊报错" class="headerlink" title="特殊报错"></a>特殊报错</h3><p><img src="/images/23.jpg" alt="23"></p>
+<p>在公共文件application/common.php中</p>
+<p><img src="/images/24.jpg" alt="24"></p>
+<h2 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h2><h3 id="连表操作"><a href="#连表操作" class="headerlink" title="连表操作"></a>连表操作</h3><p><img src="/images/32.jpg" alt="32"></p>
+<h3 id="入库前钩子"><a href="#入库前钩子" class="headerlink" title="入库前钩子"></a>入库前钩子</h3><p>入库前实现某一属性值的生成</p>
+<p><img src="/images/39.jpg" alt="39"></p>
+<h2 id="特殊插件"><a href="#特殊插件" class="headerlink" title="特殊插件"></a>特殊插件</h2><h3 id="富文本编辑器"><a href="#富文本编辑器" class="headerlink" title="富文本编辑器"></a>富文本编辑器</h3><ul>
+<li><p>在public/static/plugins/粘贴富文本编辑器文件ueditor</p>
+<p> <img src="/images/33.jpg" alt="33"></p>
+</li>
+<li><p>打开富文本编辑器的源代码 在需要导入富文本编辑器的html中粘贴要导入的代码</p>
+<p><img src="/images/34.jpg" alt="34"></p>
+</li>
+<li><p>修改路径</p>
+<p><img src="/images/35.jpg" alt="35"></p>
+</li>
+<li><p>实例化编辑器</p>
+<p> <img src="/images/36.jpg" alt="36"></p>
+</li>
+<li><p>修改富文本编辑器的配置(宽高)</p>
+<p>在ueditor/ueditor.config.js中进行修改</p>
+<p><img src="/images/37.jpg" alt="37"></p>
+</li>
+<li><p>加参数防止缓存</p>
+<p> <img src="/images/38.jpg" alt="38"></p>
+</li>
+</ul>
+<h2 id="多图片上传"><a href="#多图片上传" class="headerlink" title="多图片上传"></a>多图片上传</h2><ul>
+<li>上传多图片的要求，为了满足商城前台商品详情页图片画廊的最佳显示效果</li>
+</ul>
+<p><img src="/images/40.jpg" alt="40"></p>
+<p>​    建议原图上传800*800，甚至更大，生成两种缩略图</p>
+<p>​    中图缩略图：350*350，缩略图生成比例为2，等比补白填充</p>
+<p>​    小图缩略图：50*50</p>
+<ul>
+<li><p>字段保存建议使用text格式用json保存图片</p>
+</li>
+<li><p>把多文件的信息存储在img[ ]中<img src="/images/41.jpg" alt="41"></p>
+</li>
+<li><p>在控制器中 在验证成功后 做文件上传 获取img[ ] </p>
+<p><img src="/images/43.jpg" alt="43"></p>
+</li>
+<li><p>创建文件上传方法</p>
+<p> <img src="/images/42.jpg" alt="42"></p>
+</li>
+<li><p>原图上传成功后 进行缩略图上传处理（中小图）</p>
+<p> <img src="/images/44.jpg" alt="44"></p>
+</li>
+<li><p>回到添加方法</p>
+</li>
+</ul>
+<p><img src="/images/45.jpg" alt="45"></p>
+<h2 id="短信验证"><a href="#短信验证" class="headerlink" title="短信验证"></a>短信验证</h2><ul>
+<li><p>登录短信验证平台网站并登录，如：<a href="https://www.yuntongxun.com/" target="_blank" rel="noopener">https://www.yuntongxun.com/</a></p>
+</li>
+<li><p>进入平台测试号码，添加用来测试的号码 </p>
+<p><img src="/images/46.jpg" alt="46"></p>
+</li>
+<li><p>点击进入开发文档 —&gt; 短信开发手册 —&gt; demo示例</p>
+</li>
+<li><p>下载SMS PHP DEMO并解压</p>
+<p><img src="/images/47.jpg" alt="47"></p>
+</li>
+<li><p>复制CCPRestSmsSDK.php 到商城项目extend文件夹里的新建文件夹sendSms中</p>
+<p><img src="/images/48.jpg" alt="48"></p>
+</li>
+<li><p>先暂时把SendTemplateSMS.php文件复制粘贴到入口文件的目录中，方便调试</p>
+<p><img src="/images/49.jpg" alt="49"></p>
+</li>
+<li><p>修改里面的内容</p>
+<p><img src="/images/50.jpg" alt="50"></p>
+</li>
+<li><p>修改该文件底部为方法的调用</p>
+<p><img src="/images/51.jpg" alt="51"></p>
+</li>
+<li><p>复制sendTemplateSMS.php的内容 按一定方式移动到application/common.php公共文件内并进行修改，</p>
+<p><img src="/images/52.jpg" alt="52"></p>
+<p><img src="/images/53.jpg" alt="53"></p>
+</li>
+<li><p>删除SendTemplateSMS.php，进入登录/注册界面</p>
+<p>调用方法并测试</p>
+<p><img src="/images/54.jpg" alt="54"></p>
+<p><img src="/images/55.jpg" alt="55"></p>
+</li>
+<li><p>添加ajax验证</p>
+<p><img src="/images/56.jpg" alt="56"></p>
+<p><img src="/images/57.jpg" alt="57"></p>
+</li>
+<li><p>防止频繁发送（设置倒计时60s）</p>
+<p><img src="/images/58.jpg" alt="58"></p>
+<p><img src="/images/59.jpg" alt="59"></p>
+</li>
+</ul>
+<h2 id="邮箱技术密码找回"><a href="#邮箱技术密码找回" class="headerlink" title="邮箱技术密码找回"></a>邮箱技术密码找回</h2><ul>
+<li><p>登录163账号，找到【设置】-&gt;【pop3/SMTP/IMAP选项】</p>
+<p><img src="/images/69.jpg" alt="69"></p>
+</li>
+<li><p>开通smtp服务</p>
+<p><img src="/images/70.jpg" alt="70"></p>
+</li>
+<li><p>设置客户端授权密码 </p>
+<p><img src="/images/71.jpg" alt="71"></p>
+</li>
+<li><p>把插件中phpemail的文件改名为sendEmail并放入extend目录中</p>
+<p><img src="/images/72.jpg" alt="72"> </p>
+</li>
+<li><p>修改demo.php的内容</p>
+<p><img src="/images/73.jpg" alt="73"> </p>
+</li>
+<li><p>封装发送邮件方法，进入application/common.php创建方法sendEmail，复制demo内容到方法中，并修改</p>
+<p><img src="/images/74.jpg" alt="74"> </p>
+<p>调用形式：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sendEmail([<span class="string">'691661505@qq.com'</span>,<span class="string">'b691661505@163.com'</span>,<span class="string">'找回密码呀'</span>,<span class="string">'找呀找呀找密码'</span>]);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>找到登录界面，加上跳转链接</p>
+<p><img src="/images/75.jpg" alt="75"> </p>
+</li>
+<li><p>添加forgetPassword方法，添加路由，渲染模板</p>
+<p><img src="/images/76.jpg" alt="76"> </p>
+</li>
+<li><p>给发送邮件按钮(id=”sendemail”)绑定ajax 并创建home/public/sendEmail方法 </p>
+<p><img src="/images/77.jpg" alt="77"> </p>
+<p><img src="/images/78.jpg" alt="78"></p>
+<p>href改为：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$href = request()-&gt;domain().<span class="string">'/index.php/home/public/change/'</span>.$member_id;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加方法home/public/change，添加路由，模板</p>
+<p>带参数路由绑定</p>
+<p><img src="/images/79.jpg" alt="79"> </p>
+</li>
+<li><p>编写change方法，进入application/congif添加邮箱加密盐，新增参数</p>
+<p> <img src="/images/80.jpg" alt="80"> </p>
+<p><img src="/images/82.jpg" alt="82"> </p>
+<p><img src="/images/79.jpg" alt="79"></p>
+<p><img src="/images/81.jpg" alt="81"> </p>
+</li>
+</ul>
+<h2 id="查询订单物流"><a href="#查询订单物流" class="headerlink" title="查询订单物流"></a>查询订单物流</h2><p>接口地址：<a href="http://www.kuaidi100.com/applyurl?key=%7b$key%7d&amp;com=%7b$com%7d&amp;nu=%7b$nu%7d&amp;show=0" target="_blank" rel="noopener">http://www.kuaidi100.com/applyurl?key={$key}&amp;com={$com}&amp;nu={$nu}&amp;show=0</a> </p>
+<p>参数说明：</p>
+<p>key:即密钥，使用9d37bc6b0a41e6fe即可。</p>
+<p>com:物流公司，如下常见的几个：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">''</span>&gt;</span>请选择物流公司<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"yuantong"</span>&gt;</span>圆通<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"shentong"</span>&gt;</span>申通<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"zhongtong"</span>&gt;</span>中通<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"yunda"</span>&gt;</span>韵达<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"shunfeng"</span>&gt;</span>顺丰<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>返回的是一个连接地址，该地址里面是已经渲染好的渲染的物流信息</p>
+<p><img src="/images/21.png" alt="21"></p>
+<p>可以使用layer 的 iframe引入</p>
+<h2 id="工具网站"><a href="#工具网站" class="headerlink" title="工具网站"></a>工具网站</h2><h3 id="Composer第三方库"><a href="#Composer第三方库" class="headerlink" title="Composer第三方库"></a>Composer第三方库</h3><h4 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h4><p>Composer 是 PHP 的一个包依赖管理工具。能够帮助我们安装我们项目所需要的依赖包。</p>
+<h4 id="安装composer"><a href="#安装composer" class="headerlink" title="安装composer"></a>安装composer</h4><ul>
+<li>第一种方式：</li>
+</ul>
+<p>去composer官网(  <a href="https://getcomposer.org/download/" target="_blank" rel="noopener">https://getcomposer.org/download/</a>   )下载Composer-setup.exe进行安装，由于此软件安装需要联网且服务器在国外安装很难成功，所以这里推荐使用下面第二种方式进行安装。</p>
+<p><img src="/images/10.png" alt="10"></p>
+<ul>
+<li><p>[推荐]第二种方式</p>
+<p>去官网<a href="https://getcomposer.org/download" target="_blank" rel="noopener">https://getcomposer.org/download</a> 下载composer.phar文件。</p>
+</li>
+</ul>
+<p><img src="/images/11.png" alt="11"></p>
+<p>找到并进入 PHP 的安装目录,将下载的composer.phar 复制到 PHP 的安装目录下面，也就是和 php.exe 在同一级目录。注意自己使用哪个php版本。 </p>
+<p><img src="/images/84.jpg" alt="84"></p>
+<p>在 PHP 安装目录（D:\phpStudy\php\php-5.6.27-nts）下新建一个 composer.bat 文件，并将下列代码保存到此文件中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@php &quot;%~dp0composer.phar&quot; %*</span><br></pre></td></tr></table></figure>
+<p>至此composer的安装就完成。</p>
+<p>进入对应php版本目录D:\phpStudy\php\php-5.6.27-nts中输入composer指令，出现如下提示代表安装成功：</p>
+<p><img src="/images/85.jpg" alt="85"></p>
+<p>为了可以全局（任意位置）访问composer，可以把php.exe的所在目录（D:\phpStudy\php\php-5.6.27-nts）定义在环境变量path选项中。</p>
+<p>设置好后输入php  -v即可看到php版本号。且cmd中任意位置输入composer指令都可出现效果</p>
+<p><strong>注</strong>：需要打开php.ini文件开启openssl扩展。因为后面composer的相关命令需要使用ssl协议进行下载包。</p>
+<h4 id="配置composer为国内镜像提高速度"><a href="#配置composer为国内镜像提高速度" class="headerlink" title="配置composer为国内镜像提高速度"></a>配置composer为国内镜像提高速度</h4><p>配置国内镜像：<a href="https://pkg.phpcomposer.com/" target="_blank" rel="noopener">https://pkg.phpcomposer.com/</a></p>
+<p>输入命令 </p>
+<p>全局配置：composer config -g repo.packagist composer <a href="https://packagist.phpcomposer.com" target="_blank" rel="noopener">https://packagist.phpcomposer.com</a></p>
+<p><img src="/images/12.png" alt="12"></p>
+<p>局部配置：若只想在当前项目中有效，把上面的命令去掉 -g 即可。</p>
+<h4 id="composer相关命令"><a href="#composer相关命令" class="headerlink" title="composer相关命令"></a>composer相关命令</h4><ul>
+<li><p>查看所有的composer可以使用的命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer list</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看某个命令的使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer  require --help</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>composer下载thinkphp框架： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer create-project topthink/think  shop</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>注：</strong>其中shop代表框架存放的目录，会自动生成，未指定则默认放在think目录</p>
+<ul>
+<li><p>安装一些第三方包 包地址：<a href="https://packagist.org/" target="_blank" rel="noopener">https://packagist.org/</a> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer require 厂商/包名=版本号</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>注：</strong>若不指定版本号默认安装最新版本</p>
+<p>如安装tp5验证码1.0.3 版本：composer require topthink/think-captcha=1.0.3</p>
+<p>如安装tp5验证码1.0的最高版本：composer require topthink/think-captcha=1.0.*</p>
+<p>包名所有的版本：<a href="https://packagist.org/packages/topthink/think-captcha" target="_blank" rel="noopener">https://packagist.org/packages/topthink/think-captcha</a> </p>
+<p>设置版本号：</p>
+<p><a href="https://segmentfault.com/a/1190000005898222" target="_blank" rel="noopener">https://segmentfault.com/a/1190000005898222</a> </p>
+<p><a href="https://docs.phpcomposer.com/01-basic-usage.html#composer.json-Project-Setup" target="_blank" rel="noopener">https://docs.phpcomposer.com/01-basic-usage.html#composer.json-Project-Setup</a> </p>
+<ul>
+<li><p>安装composer.json指定的依赖包：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer install</span><br></pre></td></tr></table></figure>
+<p>composer.json文件说明：</p>
+</li>
+</ul>
+<p><a href="https://docs.phpcomposer.com/01-basic-usage.html#composer.json-Project-Setup" target="_blank" rel="noopener">https://docs.phpcomposer.com/01-basic-usage.html#composer.json-Project-Setup</a></p>
+<ul>
+<li>删除指定的包：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer  remove  topthink/think-captcha</span><br></pre></td></tr></table></figure>
+<ul>
+<li>删除指定的包：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer  search  topthink/think-captcha</span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装composer.json指定的依赖包：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer install</span><br></pre></td></tr></table></figure>
+<p>​    会自动安装在composer.json文件中所指定的各种依赖包，执行成功后会多处一个composer.lock的锁文件。后面需要更新依赖库只能通过composer update实现安装。</p>
+<p>composer.json文件架构详解：<a href="https://docs.phpcomposer.com/04-schema.html" target="_blank" rel="noopener">https://docs.phpcomposer.com/04-schema.html</a> </p>
+<ul>
+<li>更新依赖包</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer update</span><br></pre></td></tr></table></figure>
+<p>若修改composer.json中require指定的依赖包，且存在composer.lock文件，则只能通过</p>
+<p>composer update进行更新。</p>
+<ul>
+<li>取消镜像：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer config -g --unset repos.packagist</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看当前composer版本</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer -v</span><br></pre></td></tr></table></figure>
+<ul>
+<li>升级composer版本：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer selfupdate</span><br></pre></td></tr></table></figure>
+<h4 id="使用composer安装tp5验证码"><a href="#使用composer安装tp5验证码" class="headerlink" title="使用composer安装tp5验证码"></a>使用composer安装tp5验证码</h4><p>手册位置：杂项–&gt;验证码</p>
+<p><strong>步骤1</strong>：切换到项目根目录即composer.json 所在的目录，输入指令 composer require topthink/think-captcha=1.0.*进行安装。</p>
+<p><img src="/images/13.png" alt="13"></p>
+<p>注：不要安装2.0以上版本，此版本需要tp5是5.1版本，我们tp5版本是5.0版本</p>
+<p>默认下载的tp5框架已经帮我们下载好了验证码，不用composer安装可直接使用即可。</p>
+<p><img src="/images/14.png" alt="14"></p>
+<h4 id="完成登录的验证码功能"><a href="#完成登录的验证码功能" class="headerlink" title="完成登录的验证码功能"></a>完成登录的验证码功能</h4><p>手册位置：杂项–&gt;验证码</p>
+<p><strong>步骤1</strong>：找到login.html模板，设置img的src为{:captcha_src()}</p>
+<p><strong>步骤2</strong>：设置验证码的配置 =</p>
+<p><strong>步骤3</strong>：单击验证码，更换验证码 </p>
+<p><strong>步骤4</strong>：单击登录按钮，在login方法中判断验证码是否输入正确 </p>
+<p>页面输入错误，打回来时候。让验证码自执行单击事件</p>
+<h3 id="Layui"><a href="#Layui" class="headerlink" title="Layui"></a>Layui</h3><p><a href="http://layer.layui.com/" target="_blank" rel="noopener">http://layer.layui.com/</a> ：弹出框等。</p>
+<p>使用：</p>
+<ul>
+<li>点击选项</li>
+</ul>
+<p><img src="/images/60.jpg" alt="60"></p>
+<ul>
+<li><p>复制代码 覆盖到之前显示的地方 如：alert</p>
+<p><img src="/images/61.jpg" alt="61"></p>
+</li>
+<li><p>找到layer-v3.0.1文件 把里面的layer文件拖到public/static/plugins</p>
+<p><img src="/images/62.jpg" alt="62"></p>
+</li>
+<li><p>在当前html模板引入layer/layer.js</p>
+<p><img src="/images/63.jpg" alt="63"></p>
+</li>
+</ul>
+<h3 id="聚合网站"><a href="#聚合网站" class="headerlink" title="聚合网站"></a>聚合网站</h3><p><a href="https://www.juhe.cn：提供各种API接口" target="_blank" rel="noopener">https://www.juhe.cn：提供各种API接口</a></p>
+<p>案例：调用聚合数据的API接口，实现获取手机的归属地查询（查询快递、发送短信）</p>
+<p>① 找到对应的API接口</p>
+<p><a href="https://www.juhe.cn/docs/api/id/11" target="_blank" rel="noopener">https://www.juhe.cn/docs/api/id/11</a> 手机号码归属地查询</p>
+<p>② 看请求的url地址</p>
+<p><img src="/images/65.jpg" alt="65"></p>
+<p>由以上代码可知，请求的URL地址需要传递2个参数，phone与key，请求方式为url。</p>
+<p>③ 在PHP中调用请求的url地址</p>
+<p>如果是get请求，使用file_get_contents(url)模拟get请求</p>
+<p>如果是post请求，使用curl进行模拟</p>
+<p>index.html：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">'./jquery.js'</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"./deal.php"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">		手机号码：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"phone"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">name</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"查询归属地"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>deal.php：</p>
+<p><img src="/images/66.jpg" alt="66"></p>
+<h3 id="JQ插件网站"><a href="#JQ插件网站" class="headerlink" title="JQ插件网站"></a>JQ插件网站</h3><p>打开网站<a href="http://www.jq22.com/" target="_blank" rel="noopener">http://www.jq22.com/</a></p>
+<p>案例：获取加载图标</p>
+<p>搜索想要的图标 打开</p>
+<p><img src="/images/67.jpg" alt="67"></p>
+<h3 id="支付宝"><a href="#支付宝" class="headerlink" title="支付宝"></a>支付宝</h3><ul>
+<li><p>进入支付宝开发者中心</p>
+<p> <a href="https://openhome.alipay.com/platform/developerIndex.htm" target="_blank" rel="noopener">https://openhome.alipay.com/platform/developerIndex.htm</a> </p>
+<p> 注意：必须要先成为自研服务者 </p>
+</li>
+<li><p>进入沙箱环境</p>
+<p><img src="/images/15.png" alt="15"></p>
+</li>
+<li><p>下载支付宝支付的开发包SDK&amp;Demo </p>
+<p>下载地址：<a href="https://docs.open.alipay.com/270/106291" target="_blank" rel="noopener">https://docs.open.alipay.com/270/106291</a> </p>
+<p>下载回来的压缩包如下：</p>
+<p><img src="/images/16.png" alt="16"></p>
+<p>解压下来如下所示： </p>
+<p><img src="/images/17.png" alt="17"></p>
+<ul>
+<li><p>aop：包含<strong>支付宝核心的支付文</strong>件。</p>
+</li>
+<li><p>lotusphp_runtime： 这是一个国外的PHP框架，这里是支付宝默认使用的。</p>
+</li>
+<li><p>pagepay：具体的实现支付接口的代码文件</p>
+</li>
+<li><p>config.php：配置文件，填写应用配置APPID、应用密钥、支付宝、支付网关的配置</p>
+</li>
+<li><p>notify_url.php：支付成功后支付宝以post方式异步通知地址的demo文件，获取支付结果的参数</p>
+</li>
+<li><p>return_url.php：支付成功后支付宝以get方式同步通知地址的demo文件，获取支付结果的参数注：支付宝接口对我们的PHP版本有要求，必须在PHP5.5以上， </p>
+</li>
+</ul>
+<p>注：支付宝接口对我们的PHP版本有要求，必须在PHP5.5以上，且需要开启对应php版本的php.ini配置文件中的pnp_openssl.dll扩展，去掉前面的分号，并重启apache服务器</p>
+</li>
+<li><p>引入支付宝到项目中 ,把支付宝下载下来的SDK文件复制到目录/extend下面 ，改名为alipay </p>
+<p><img src="/images/86.jpg" alt="86"></p>
+</li>
+<li><p>进行支付前的相关参数配置，进入alipay/config.php</p>
+<p><img src="/images/87.jpg" alt="87"></p>
+<ul>
+<li>app_id:可以从支付宝的沙箱应用中获取到</li>
+<li>支付宝网关(gatewayUrl)</li>
+</ul>
+<p>正式环境：<a href="https://openapi.alipaydev.com/gateway.do" target="_blank" rel="noopener">https://openapi.alipay.com/gateway.do</a></p>
+<p>沙箱环境：<a href="https://openapi.alipaydev.com/gateway.do" target="_blank" rel="noopener">https://openapi.alipaydev.com/gateway.do</a></p>
+<p>注意：以后去公司做支付宝支付时，上线要使用正式环境的支付网关</p>
+<ul>
+<li><p>应用私钥（merchant_private_key）</p>
+<p>进入<a href="https://docs.open.alipay.com/291/105971" target="_blank" rel="noopener">https://docs.open.alipay.com/291/105971</a></p>
+<p><img src="/images/88.jpg" alt="88"></p>
+<p>解压后，以管理员身份运行”RSA签名验证工具.bat“(或打开黑窗口进入 D:\PHP\插件\支付宝\secret_key_tools_RSA_win\RSA签名验签工具windows_V1.4 输入命令：</p>
+<p><code>jre\bin\java.exe -Dfile.encoding=UTF-8 -jar openssl_tools.jar</code>)，弹出窗口</p>
+<p><img src="/images/18.png" alt="18"></p>
+<p>选择选项，生成私钥，把商户应用私钥复制粘贴到配置项merchant_private_key中</p>
+</li>
+<li><p>支付宝公钥（alipay_public_key）</p>
+<p>复制上图的应用公钥，进入沙箱环境，点击查看应用公钥</p>
+<p><img src="/images/19.png" alt="19"></p>
+<p>经过上传生成的公钥复制粘贴到配置项alipay_public_key中</p>
+</li>
+<li><p>异步通知地址（notify_url）和同步跳转（return_url）</p>
+<p><img src="/images/89.jpg" alt="89"></p>
+</li>
+</ul>
+</li>
+<li><p>进入控制器，创建方法</p>
+<p><img src="/images/90.jpg" alt="90"> </p>
+<p>在支付处调用该方法</p>
+<p><img src="/images/91.jpg" alt="91"> </p>
+<p>异步通知地址</p>
+<p><img src="/images/92.jpg" alt="92"> </p>
+</li>
+<li><p>修改pagepay/pagepay.php支付文件的几个变量</p>
+<p><img src="/images/20.png" alt="20"> </p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/php/" rel="tag"># php</a>
+          
+            <a href="/tags/mysql/" rel="tag"># mysql</a>
+          
+            <a href="/tags/tp5/" rel="tag"># tp5</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/08/quick-other/" rel="next" title="quick-other">
+                <i class="fa fa-chevron-left"></i> quick-other
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/08/quick-前端/" rel="prev" title="quick-前端">
+                quick-前端 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/a.jpg" alt="JIUXINYAN">
+            
+              <p class="site-author-name" itemprop="name">JIUXINYAN</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/JIUXINYAN" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="691661505@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/JIUXINYAN.com/" title="moxin" target="_blank">moxin</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP"><span class="nav-number">1.</span> <span class="nav-text">PHP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#九大超全局预定义数组变量"><span class="nav-number">1.1.</span> <span class="nav-text">九大超全局预定义数组变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#魔术常量"><span class="nav-number">1.2.</span> <span class="nav-text">魔术常量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#魔术方法"><span class="nav-number">1.3.</span> <span class="nav-text">魔术方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件包含的四种方式"><span class="nav-number">1.4.</span> <span class="nav-text">文件包含的四种方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数"><span class="nav-number">1.5.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类型转换函数"><span class="nav-number">1.5.1.</span> <span class="nav-text">类型转换函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类型判断相关函数"><span class="nav-number">1.5.2.</span> <span class="nav-text">类型判断相关函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进制转换相关函数"><span class="nav-number">1.5.3.</span> <span class="nav-text">进制转换相关函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串函数（-String函数）"><span class="nav-number">1.5.4.</span> <span class="nav-text">字符串函数（ String函数）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串—数组-转换"><span class="nav-number">1.5.4.1.</span> <span class="nav-text">字符串—数组 转换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#除空白函数"><span class="nav-number">1.5.4.2.</span> <span class="nav-text">除空白函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#截取函数"><span class="nav-number">1.5.4.3.</span> <span class="nav-text">截取函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#大小写转换函数"><span class="nav-number">1.5.4.4.</span> <span class="nav-text">大小写转换函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查找函数"><span class="nav-number">1.5.4.5.</span> <span class="nav-text">查找函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#替换函数"><span class="nav-number">1.5.4.6.</span> <span class="nav-text">替换函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#格式化函数"><span class="nav-number">1.5.4.7.</span> <span class="nav-text">格式化函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用输出函数"><span class="nav-number">1.5.4.8.</span> <span class="nav-text">常用输出函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他"><span class="nav-number">1.5.4.9.</span> <span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组函数-Array"><span class="nav-number">1.5.5.</span> <span class="nav-text">数组函数(Array)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#排序函数"><span class="nav-number">1.5.5.1.</span> <span class="nav-text">排序函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#元素指针函数"><span class="nav-number">1.5.5.2.</span> <span class="nav-text">元素指针函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#操作元素"><span class="nav-number">1.5.5.3.</span> <span class="nav-text">操作元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#提取信息"><span class="nav-number">1.5.5.4.</span> <span class="nav-text">提取信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组和变量转换"><span class="nav-number">1.5.5.5.</span> <span class="nav-text">数组和变量转换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分段和填充"><span class="nav-number">1.5.5.6.</span> <span class="nav-text">分段和填充</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组计算"><span class="nav-number">1.5.5.7.</span> <span class="nav-text">数组计算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他-1"><span class="nav-number">1.5.5.8.</span> <span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时间日期函数-Date-Time"><span class="nav-number">1.5.6.</span> <span class="nav-text">时间日期函数(Date/Time)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件操作"><span class="nav-number">1.6.</span> <span class="nav-text">文件操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-对目录操作"><span class="nav-number">1.6.1.</span> <span class="nav-text">1. 对目录操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-对文件操作"><span class="nav-number">1.6.2.</span> <span class="nav-text">2. 对文件操作</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据库"><span class="nav-number">2.</span> <span class="nav-text">数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-数据库操作-databases"><span class="nav-number">2.1.</span> <span class="nav-text">1. 数据库操作(databases)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-数据表操作-tables"><span class="nav-number">2.2.</span> <span class="nav-text">2. 数据表操作(tables)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-数据的基本操作-values"><span class="nav-number">2.3.</span> <span class="nav-text">3. 数据的基本操作(values)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-列（字段）类型设置"><span class="nav-number">2.4.</span> <span class="nav-text">4. 列（字段）类型设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#整型类型"><span class="nav-number">2.4.1.</span> <span class="nav-text">整型类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小数类型"><span class="nav-number">2.4.2.</span> <span class="nav-text">小数类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时间日期型"><span class="nav-number">2.4.3.</span> <span class="nav-text">时间日期型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串类型"><span class="nav-number">2.4.4.</span> <span class="nav-text">字符串类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-列-字段-属性设置"><span class="nav-number">2.5.</span> <span class="nav-text">5. 列(字段)属性设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-修改列-字段"><span class="nav-number">2.6.</span> <span class="nav-text">6. 修改列(字段)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-子语句"><span class="nav-number">2.7.</span> <span class="nav-text">7. 子语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-函数"><span class="nav-number">2.8.</span> <span class="nav-text">8. 函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MYSQLI扩展"><span class="nav-number">3.</span> <span class="nav-text">MYSQLI扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-连库操作"><span class="nav-number">3.1.</span> <span class="nav-text">1. 连库操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-设置-增删改-操作"><span class="nav-number">3.2.</span> <span class="nav-text">2. 设置(增删改)操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-查询操作"><span class="nav-number">3.3.</span> <span class="nav-text">3. 查询操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-辅助操作函数"><span class="nav-number">3.4.</span> <span class="nav-text">4. 辅助操作函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP协议"><span class="nav-number">4.</span> <span class="nav-text">HTTP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-请求头协议项："><span class="nav-number">4.1.</span> <span class="nav-text">1. 请求头协议项：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-响应头协议项："><span class="nav-number">4.2.</span> <span class="nav-text">2. 响应头协议项：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GD操作-画图"><span class="nav-number">5.</span> <span class="nav-text">GD操作 (画图)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-创建画布"><span class="nav-number">5.1.</span> <span class="nav-text">1. 创建画布</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-关闭画布"><span class="nav-number">5.2.</span> <span class="nav-text">2. 关闭画布</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-图像输出"><span class="nav-number">5.3.</span> <span class="nav-text">3. 图像输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-画布内容相"><span class="nav-number">5.4.</span> <span class="nav-text">4. 画布内容相</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-辅助相关操作"><span class="nav-number">5.5.</span> <span class="nav-text">5. 辅助相关操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-其他"><span class="nav-number">5.6.</span> <span class="nav-text">6. 其他</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PDO-操作数据库"><span class="nav-number">6.</span> <span class="nav-text">PDO (操作数据库)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-连库操作-1"><span class="nav-number">6.1.</span> <span class="nav-text">1. 连库操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-设置操作-增删改"><span class="nav-number">6.2.</span> <span class="nav-text">2.设置操作(增删改)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-查询操作-1"><span class="nav-number">6.3.</span> <span class="nav-text">3. 查询操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-事务"><span class="nav-number">6.4.</span> <span class="nav-text">4. 事务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-预处理技术"><span class="nav-number">6.5.</span> <span class="nav-text">5. 预处理技术</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-异常处理"><span class="nav-number">6.6.</span> <span class="nav-text">6. 异常处理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SMARTY-模板技术"><span class="nav-number">7.</span> <span class="nav-text">SMARTY (模板技术)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-程序设计-在PHP里"><span class="nav-number">7.1.</span> <span class="nav-text">1. 程序设计(在PHP里)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定界符"><span class="nav-number">7.1.1.</span> <span class="nav-text">定界符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目录设置"><span class="nav-number">7.1.2.</span> <span class="nav-text">目录设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常量设置"><span class="nav-number">7.1.3.</span> <span class="nav-text">常量设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-模板设计-在HTML里"><span class="nav-number">7.2.</span> <span class="nav-text">2. 模板设计(在HTML里)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模板注释"><span class="nav-number">7.2.1.</span> <span class="nav-text">模板注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模板变量"><span class="nav-number">7.2.2.</span> <span class="nav-text">模板变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-简单模板变量"><span class="nav-number">7.2.2.1.</span> <span class="nav-text">1. 简单模板变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-数组模板变量"><span class="nav-number">7.2.2.2.</span> <span class="nav-text">2. 数组模板变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-对象模板变量"><span class="nav-number">7.2.2.3.</span> <span class="nav-text">3. 对象模板变量</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#系统变量"><span class="nav-number">7.2.3.</span> <span class="nav-text">系统变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内置函数"><span class="nav-number">7.2.4.</span> <span class="nav-text">内置函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量调节器"><span class="nav-number">7.2.5.</span> <span class="nav-text">变量调节器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MVC-编程方式"><span class="nav-number">8.</span> <span class="nav-text">MVC (编程方式)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TP5框架开发"><span class="nav-number">9.</span> <span class="nav-text">TP5框架开发</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前期处理"><span class="nav-number">9.1.</span> <span class="nav-text">前期处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置默认项"><span class="nav-number">9.1.1.</span> <span class="nav-text">配置默认项</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#应用设置"><span class="nav-number">9.1.1.1.</span> <span class="nav-text">应用设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模块设置"><span class="nav-number">9.1.1.2.</span> <span class="nav-text">模块设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#URL设置"><span class="nav-number">9.1.1.3.</span> <span class="nav-text">URL设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义配置"><span class="nav-number">9.1.1.4.</span> <span class="nav-text">自定义配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置数据库"><span class="nav-number">9.1.2.</span> <span class="nav-text">配置数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置路由"><span class="nav-number">9.1.3.</span> <span class="nav-text">配置路由</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建目录"><span class="nav-number">9.1.4.</span> <span class="nav-text">创建目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置路由"><span class="nav-number">9.1.5.</span> <span class="nav-text">设置路由</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#资源管理"><span class="nav-number">9.1.6.</span> <span class="nav-text">资源管理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#登录登出处理"><span class="nav-number">9.2.</span> <span class="nav-text">登录登出处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#登录处理"><span class="nav-number">9.2.1.</span> <span class="nav-text">登录处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#退出处理"><span class="nav-number">9.2.2.</span> <span class="nav-text">退出处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#权限防翻墙"><span class="nav-number">9.2.3.</span> <span class="nav-text">权限防翻墙</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关操作处理"><span class="nav-number">9.3.</span> <span class="nav-text">相关操作处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#无限极分类"><span class="nav-number">9.3.1.</span> <span class="nav-text">无限极分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理数据子级关系"><span class="nav-number">9.3.2.</span> <span class="nav-text">处理数据子级关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特殊报错"><span class="nav-number">9.3.3.</span> <span class="nav-text">特殊报错</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库操作"><span class="nav-number">9.4.</span> <span class="nav-text">数据库操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#连表操作"><span class="nav-number">9.4.1.</span> <span class="nav-text">连表操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#入库前钩子"><span class="nav-number">9.4.2.</span> <span class="nav-text">入库前钩子</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特殊插件"><span class="nav-number">9.5.</span> <span class="nav-text">特殊插件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#富文本编辑器"><span class="nav-number">9.5.1.</span> <span class="nav-text">富文本编辑器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多图片上传"><span class="nav-number">9.6.</span> <span class="nav-text">多图片上传</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#短信验证"><span class="nav-number">9.7.</span> <span class="nav-text">短信验证</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#邮箱技术密码找回"><span class="nav-number">9.8.</span> <span class="nav-text">邮箱技术密码找回</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询订单物流"><span class="nav-number">9.9.</span> <span class="nav-text">查询订单物流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工具网站"><span class="nav-number">9.10.</span> <span class="nav-text">工具网站</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Composer第三方库"><span class="nav-number">9.10.1.</span> <span class="nav-text">Composer第三方库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#简述"><span class="nav-number">9.10.1.1.</span> <span class="nav-text">简述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装composer"><span class="nav-number">9.10.1.2.</span> <span class="nav-text">安装composer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置composer为国内镜像提高速度"><span class="nav-number">9.10.1.3.</span> <span class="nav-text">配置composer为国内镜像提高速度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#composer相关命令"><span class="nav-number">9.10.1.4.</span> <span class="nav-text">composer相关命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用composer安装tp5验证码"><span class="nav-number">9.10.1.5.</span> <span class="nav-text">使用composer安装tp5验证码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#完成登录的验证码功能"><span class="nav-number">9.10.1.6.</span> <span class="nav-text">完成登录的验证码功能</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Layui"><span class="nav-number">9.10.2.</span> <span class="nav-text">Layui</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#聚合网站"><span class="nav-number">9.10.3.</span> <span class="nav-text">聚合网站</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JQ插件网站"><span class="nav-number">9.10.4.</span> <span class="nav-text">JQ插件网站</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#支付宝"><span class="nav-number">9.10.5.</span> <span class="nav-text">支付宝</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JIUXINYAN</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Pisces</a> v6.0.6</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.6"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.6"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.0.6"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.0.6"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.6"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.6"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.6"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

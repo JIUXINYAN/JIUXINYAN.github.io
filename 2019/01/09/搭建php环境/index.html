@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.0.6" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.6">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.0.6">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.0.6">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.6" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.0.6',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="搭建PHP环境">
+<meta name="keywords" content="php">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搭建php环境">
+<meta property="og:url" content="http://JIUXINYAN.com/2019/01/09/搭建php环境/index.html">
+<meta property="og:site_name" content="moxin-blog">
+<meta property="og:description" content="搭建PHP环境">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/2_d1.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/3_d1.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/4_d1.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/5_d1.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/6_d1.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/7_d1.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/8_d1.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/9_d1.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/10_d1.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/11_d1.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/12.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/13_d1.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/49_d1.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/50_d1.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/51_d1.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/52_d1.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/14_d1.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/15_d1.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/16_d1.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/17.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/21_d1.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/19_d1.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/20_d1.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/22.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/23_d1.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/24_d1.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/25_d1.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/48_d1.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/26.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/27.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/29.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/29.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/30.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/31.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/32.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/33.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/34.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/35.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/36.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/37.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/38.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/39.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/40.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/41.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/42.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/43.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/44.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/45.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/46.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/47.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/53_d1.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/54_d1.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/55_d1.png">
+<meta property="og:image" content="http://jiuxinyan.com/images/two/img_d1/56_d1.png">
+<meta property="og:updated_time" content="2019-02-19T06:24:31.857Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="搭建php环境">
+<meta name="twitter:description" content="搭建PHP环境">
+<meta name="twitter:image" content="http://jiuxinyan.com/images/two/img_d1/2_d1.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://JIUXINYAN.com/2019/01/09/搭建php环境/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>搭建php环境 | moxin-blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://https://github.com/JIUXINYAN" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> 
+
+<div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">moxin-blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+          
+  <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+</li>
+
+      
+
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+  
+
+
+
+ </div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://JIUXINYAN.com/2019/01/09/搭建php环境/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JIUXINYAN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/a.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="moxin-blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">搭建php环境</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-09T13:50:53+08:00">2019-01-09</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/php/" itemprop="url" rel="index"><span itemprop="name">php</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="搭建PHP环境"><a href="#搭建PHP环境" class="headerlink" title="搭建PHP环境"></a>搭建PHP环境</h1><a id="more"></a>
+<h2 id="1-PHP基本介绍"><a href="#1-PHP基本介绍" class="headerlink" title="1. PHP基本介绍"></a>1. PHP基本介绍</h2><h3 id="1-1-为什么学习PHP"><a href="#1-1-为什么学习PHP" class="headerlink" title="1.1 为什么学习PHP"></a>1.1 为什么学习PHP</h3><p>PHP的优点：</p>
+<p>a. 使用范围广，应用前景好；</p>
+<p>b. 开发效率高，程序简洁；</p>
+<p>c. 跨平台运行，几乎支持所有服务器环境和所有主流数据库；</p>
+<p>d. 完全支持面向对象，也支持面向过程；</p>
+<p>e. 内置函数丰富，完美支持正则表达式，支持通用MVC框架开发；</p>
+<p>f. 与商业市场的粘合度非常高，渗透于大量的IT开源与闭源项目中；</p>
+<h3 id="1-2-什么是PHP"><a href="#1-2-什么是PHP" class="headerlink" title="1.2 什么是PHP"></a>1.2 什么是PHP</h3><p><strong>PHP</strong>: <strong>Hypertext Preprocessor</strong>  翻译过来就是：<strong>超文本预处理器</strong></p>
+<p>是一种被广泛应用的开放源代码的多用途脚本语言，它<strong>可嵌入到 HTML中</strong>，尤其适合 web 开发。 </p>
+<p>PHP于1994年由<a href="https://baike.baidu.com/item/Rasmus%20Lerdorf" target="_blank" rel="noopener">Rasmus Lerdorf</a>创建，刚刚开始是<a href="https://baike.baidu.com/item/Rasmus%20Lerdorf" target="_blank" rel="noopener">Rasmus Lerdorf</a>为了要<a href="https://baike.baidu.com/item/%E7%BB%B4%E6%8A%A4" target="_blank" rel="noopener">维护</a>个人网页而制作的一个简单的用<a href="https://baike.baidu.com/item/Perl" target="_blank" rel="noopener">Perl</a>语言编写的程序，后来又用C语言重新编写了。PHP全称最早并不是叫做Hypertext Preprocessor，而是叫Personal Home Page，Hypertext Preprocessor是1997年之后才出现的。</p>
+<p>PHP目前属于zend公司，由zend公司对其进行商业维护。公司总部设在美国加利福尼亚州的库比蒂诺，技术中心设在以色列特拉维夫的拉马特甘。</p>
+<h3 id="1-3-静态网站与动态网站的区别"><a href="#1-3-静态网站与动态网站的区别" class="headerlink" title="1.3 静态网站与动态网站的区别"></a>1.3 静态网站与动态网站的区别</h3><p>1）  动态网站以数据库技术为基础，静态网站只是单纯的静态页面（如.htm、.html、.xml）；</p>
+<p>2）  静态网站解析速度极快，但不易维护，动态网站牺牲了一定的速度，但是功能强大且维护方便；</p>
+<p><strong>注意</strong>：动态网站和动态效果不是一个概念，动态效果也可存在于静态的网站中！</p>
+<hr>
+<h2 id="2-网站的基本概念"><a href="#2-网站的基本概念" class="headerlink" title="2. 网站的基本概念"></a>2. 网站的基本概念</h2><h3 id="2-1-服务器"><a href="#2-1-服务器" class="headerlink" title="2.1 服务器"></a>2.1 服务器</h3><p>服务器，也称伺服器，是提供计算服务的设备。（可直观的理解为“电脑”）</p>
+<h3 id="2-2-IP"><a href="#2-2-IP" class="headerlink" title="2.2 IP"></a>2.2 IP</h3><p><strong>概念</strong>：表示<a href="https://baike.baidu.com/item/%E7%BD%91%E7%BB%9C%E4%B9%8B%E9%97%B4%E4%BA%92%E8%BF%9E%E7%9A%84%E5%8D%8F%E8%AE%AE" target="_blank" rel="noopener">网络之间互连的协议</a>。（IP）是Internet Protocol的外语缩写，中文缩写为“<strong>网协</strong>”。</p>
+<p>IP地址是指互联网协议地址（英语：Internet Protocol Address，又译为网际协议地址），是IP Address的缩写。IP地址是<a href="https://baike.baidu.com/item/IP%E5%8D%8F%E8%AE%AE" target="_blank" rel="noopener">IP协议</a>提供的一种统一的地址格式，它为互联网上的每一个网络和每一台主机分配一个逻辑地址，以此来屏蔽物理地址的差异。</p>
+<p><strong>注意</strong>：我们通常口述表达所说的IP指的是IP地址的概念；而正统的IP指的是一种协议。</p>
+<p><strong>IP地址其实就是用来表示计算机在互联网中的位置的地址编号！在互联网中，只能通过IP地址来找到其他的计算机</strong></p>
+<h3 id="2-3-域名"><a href="#2-3-域名" class="headerlink" title="2.3 域名"></a>2.3 域名</h3><p><a href="https://baike.baidu.com/item/%E5%9F%9F%E5%90%8D" target="_blank" rel="noopener">域名</a>（<a href="https://baike.baidu.com/item/Domain%20Name" target="_blank" rel="noopener">Domain Name</a>）：是由一串用“点”分隔的字符组成的Internet上某一台计算机或计算机组的名称，用于在数据传输时标识计算机的电子方位。</p>
+<p>域名其实就是IP地址上的“<strong>面具</strong>” 。</p>
+<h3 id="2-4-DNS"><a href="#2-4-DNS" class="headerlink" title="2.4 DNS"></a>2.4 DNS</h3><p>dns是domain name service的缩写，它的作用简单的说，可以理解为：将域名翻译成ip地址。</p>
+<p>互联网，或者服务器，是看不懂域名的，它们只懂IP地址，dns其实就是一个翻译，将域名翻译成绑定的IP地址，这样用户在浏览器中输入域名，服务器就可以通过dns知道用户请求的是哪个服务器上部署的网站，然后才将对应的网站内容返回给用户。</p>
+<h3 id="2-5-端口"><a href="#2-5-端口" class="headerlink" title="2.5 端口"></a>2.5 端口</h3><p>“<a href="https://baike.baidu.com/item/%E7%AB%AF%E5%8F%A3" target="_blank" rel="noopener">端口</a>“是英文port的意译，可以认为是设备与外界通讯交流的出口。端口可分为<strong>虚拟端口</strong>和<strong>物理端口</strong>，其中虚拟端口指计算机内部或交换机路由器内的端口，不可见。例如计算机中的80端口、21端口、23端口等。物理端口又称为接口，是可见端口，计算机背板的RJ45网口，交换机路由器集线器等RJ45端口。电话使用RJ11插口也属于物理端口的范畴。</p>
+<hr>
+<h2 id="3-安装apache"><a href="#3-安装apache" class="headerlink" title="3. 安装apache"></a>3. 安装apache</h2><h3 id="3-1-软件安装"><a href="#3-1-软件安装" class="headerlink" title="3.1 软件安装"></a>3.1 软件安装</h3><h4 id="3-1-1-准备软件压缩包"><a href="#3-1-1-准备软件压缩包" class="headerlink" title="3.1.1 准备软件压缩包"></a>3.1.1 准备软件压缩包</h4><p><img src="\images\two\img_d1\2_d1.png" alt="2_d1"></p>
+<h4 id="3-1-2-安装步骤"><a href="#3-1-2-安装步骤" class="headerlink" title="3.1.2 安装步骤"></a>3.1.2 安装步骤</h4><p><strong>1)  解压压缩包，</strong></p>
+<p><img src="\images\two\img_d1\3_d1.png" alt="3_d1"></p>
+<p><strong>2) 点击进入httpd-2.4.29-Win32-VC15文件夹，剪切Apache24文件夹，</strong></p>
+<p><img src="\images\two\img_d1\4_d1.png" alt="4_d1"></p>
+<p><strong>3) 将剪切的Apache24文件夹，粘贴到软件存放目录，比如我这里粘贴到F:\usr目录中，并且将Apache24改名为apache24</strong></p>
+<p><img src="\images\two\img_d1\5_d1.png" alt="5_d1"></p>
+<p><strong>4) 修改apache主配置文件，</strong></p>
+<p><strong>打开F:\usr\apache24\conf\httpd.conf文件，修改以下四个配置项：</strong></p>
+<p><img src="\images\two\img_d1\6_d1.png" alt="6_d1"></p>
+<p><img src="\images\two\img_d1\7_d1.png" alt="7_d1"></p>
+<p><img src="\images\two\img_d1\8_d1.png" alt="8_d1"></p>
+<p><strong>修改完成后，保存文件！</strong> </p>
+<p>5) 进入<strong>F:/usr/apache24/bin</strong>目录，打开命令窗口，输入<strong>httpd –k install</strong>安装apache</p>
+<p><img src="\images\two\img_d1\9_d1.png" alt="9_d1"></p>
+<p>再输入<strong>httpd –k star</strong>t启动apache服务</p>
+<p><img src="\images\two\img_d1\10_d1.png" alt="10_d1"></p>
+<p>6) 测试apache是否安装成功，打开浏览器，输入localhost，页面展示如下图则表示apache安装成功。</p>
+<p><img src="\images\two\img_d1\11_d1.png" alt="11_d1"></p>
+<h3 id="3-2-apache重点目录说明"><a href="#3-2-apache重点目录说明" class="headerlink" title="3.2 apache重点目录说明"></a>3.2 apache重点目录说明</h3><p><img src="\images\two\img_d1\12.png" alt="12"></p>
+<h3 id="3-3-httpd-exe相关应用"><a href="#3-3-httpd-exe相关应用" class="headerlink" title="3.3 httpd.exe相关应用"></a>3.3 httpd.exe相关应用</h3><p>我们可以通过bin目录中的httpd.exe来执行某些apache控制的操作。<img src="\images\two\img_d1\13_d1.png" alt="13_d1"></p>
+<p><strong>TIPS</strong>：在使用httpd.exe执行相关操作指令时，可以省略”.exe”，效果不变。</p>
+<h3 id="3-4-查看apache加载的模块"><a href="#3-4-查看apache加载的模块" class="headerlink" title="3.4 查看apache加载的模块"></a>3.4 查看apache加载的模块</h3><p><img src="\images\two\img_d1\49_d1.png" alt="49_d1"></p>
+<h3 id="3-5-重启apache"><a href="#3-5-重启apache" class="headerlink" title="3.5 重启apache"></a>3.5 重启apache</h3><p>操作指令：<strong>httpd.exe  –k  restart</strong></p>
+<p><img src="\images\two\img_d1\50_d1.png" alt="50_d1"></p>
+<h3 id="3-6调出帮助列表"><a href="#3-6调出帮助列表" class="headerlink" title="3.6调出帮助列表"></a>3.6调出帮助列表</h3><p>操作指令：<strong>httpd.exe  -h</strong></p>
+<p><img src="\images\two\img_d1\51_d1.png" alt="51_d1"></p>
+<h3 id="3-6-检查配置语法"><a href="#3-6-检查配置语法" class="headerlink" title="3.6 检查配置语法"></a>3.6 检查配置语法</h3><p>操作指令：<strong>httpd.exe  -t</strong></p>
+<p><img src="\images\two\img_d1\52_d1.png" alt="52_d1"></p>
+<hr>
+<h2 id="4-安装PHP"><a href="#4-安装PHP" class="headerlink" title="4. 安装PHP"></a>4. 安装PHP</h2><h3 id="4-1软件安装"><a href="#4-1软件安装" class="headerlink" title="4.1软件安装"></a>4.1软件安装</h3><h4 id="4-1-1-准备软件压缩包"><a href="#4-1-1-准备软件压缩包" class="headerlink" title="4.1.1 准备软件压缩包"></a>4.1.1 准备软件压缩包</h4><p><img src="\images\two\img_d1\14_d1.png" alt="14_d1"></p>
+<h4 id="4-1-2-安装步骤"><a href="#4-1-2-安装步骤" class="headerlink" title="4.1.2 安装步骤"></a>4.1.2 安装步骤</h4><p>1) 解压压缩包，</p>
+<p><img src="\images\two\img_d1\15_d1.png" alt="15_d1"></p>
+<p>2) 剪切解压后的PHP目录php-7.1.14-Win32-VC32-x86，转移到软件安装目录wamp中， 将php-7.1.14-Win32-VC32-x86改名为php7，</p>
+<p><img src="\images\two\img_d1\16_d1.png" alt="16_d1"></p>
+<p>3) 将PHP配置成为apache的一个模块，</p>
+<ol>
+<li><p>进入php7目录，指定当前环境的配置文件，</p>
+<p><img src="\images\two\img_d1\17.png" alt="17"></p>
+</li>
+<li><p>打开apache24/conf/httpd.conf，将PHP配置为apache的一个模块，添加如下配置项</p>
+<p><img src="\images\two\img_d1\21_d1.png" alt="21_d1"></p>
+</li>
+<li><p>打开php7/php.ini，增加如下配置项.</p>
+<p><img src="\images\two\img_d1\19_d1.png" alt="19_d1"></p>
+<p><img src="\images\two\img_d1\20_d1.png" alt="20_d1"></p>
+<p>4) 重启apache，测试访问PHP页面</p>
+<p>重启apache</p>
+<p><img src="\images\two\img_d1\22.png" alt="22"></p>
+<p>在F:/usr/apache24/htdocs目录中创建一个名为code1.php的文件，并且构建测试代码：</p>
+<p><img src="\images\two\img_d1\23_d1.png" alt="23_d1"></p>
+<p>打开浏览器，访问code1.php，成功则出现如下效果， </p>
+<p><img src="\images\two\img_d1\24_d1.png" alt="24_d1"></p>
+</li>
+</ol>
+<hr>
+<h2 id="5-安装MYSQL"><a href="#5-安装MYSQL" class="headerlink" title="5.安装MYSQL"></a>5.安装MYSQL</h2><h3 id="5-1软件安装"><a href="#5-1软件安装" class="headerlink" title="5.1软件安装"></a>5.1软件安装</h3><h4 id="5-1-1-准备软件压缩包"><a href="#5-1-1-准备软件压缩包" class="headerlink" title="5.1.1 准备软件压缩包"></a>5.1.1 准备软件压缩包</h4><p><img src="\images\two\img_d1\25_d1.png" alt="25_d1"></p>
+<h4 id="5-1-2-安装步骤"><a href="#5-1-2-安装步骤" class="headerlink" title="5.1.2 安装步骤"></a>5.1.2 安装步骤</h4><p>1) 在F:\usr 中创建一个新的目录，mysql5.5.2</p>
+<p><img src="\images\two\img_d1\48_d1.png" alt="48_d1"></p>
+<p>2) 双击进行安装</p>
+<p><img src="\images\two\img_d1\26.png" alt="26"></p>
+<p><img src="\images\two\img_d1\27.png" alt="27"></p>
+<p>3) 配置下面这个选项后<strong>别急着点nex</strong>t选项， </p>
+<p><img src="\images\two\img_d1\29.png" alt="28](\images\two\img_d1\28.png)!29"></p>
+<p>再次点击<strong>Server data files</strong>选项，改变其默认的安装路径，如下图所示，改变之后再点击<strong>next</strong>选项，</p>
+<p><img src="\images\two\img_d1\29.png" alt="29"></p>
+<p><img src="\images\two\img_d1\30.png" alt="30"><img src="\images\two\img_d1\31.png" alt="31"><img src="\images\two\img_d1\32.png" alt="32"><img src="\images\two\img_d1\33.png" alt="33"><img src="\images\two\img_d1\34.png" alt="34"><img src="\images\two\img_d1\35.png" alt="35"><img src="\images\two\img_d1\36.png" alt="36"><img src="\images\two\img_d1\37.png" alt="37"><img src="\images\two\img_d1\38.png" alt="38"><img src="\images\two\img_d1\39.png" alt="39"><img src="\images\two\img_d1\40.png" alt="40"><img src="\images\two\img_d1\41.png" alt="41"><img src="\images\two\img_d1\42.png" alt="42"><img src="\images\two\img_d1\43.png" alt="43"></p>
+<p>测试使用MYSQL数据库，</p>
+<p>打开cmd小黑窗口，输出登陆MYSQL的指令，如下图，</p>
+<p><img src="\images\two\img_d1\44.png" alt="44"></p>
+<p>输出相关内容，显示了上图中的效果，说明MYSQL安装成功。 </p>
+<hr>
+<h2 id="6-配置虚拟主机"><a href="#6-配置虚拟主机" class="headerlink" title="6. 配置虚拟主机"></a>6. 配置虚拟主机</h2><h3 id="6-1-什么是虚拟主机"><a href="#6-1-什么是虚拟主机" class="headerlink" title="6.1 什么是虚拟主机"></a>6.1 什么是虚拟主机</h3><p><strong>概念</strong>：虚拟主机是指在网络服务器上分出一定的磁盘空间，用户可以租用此部分空间，以供用户放置站点及应用组件，提供必要的数据存放和传输功能。</p>
+<h3 id="6-2-虚拟主机的分类"><a href="#6-2-虚拟主机的分类" class="headerlink" title="6.2 虚拟主机的分类"></a>6.2 虚拟主机的分类</h3><p>目前对虚拟主机的分类没有明确的界定，一般要看从什么角度上来进行分类。</p>
+<p>一种主流的分类类型是从操作系统上来进行划分，可分为：</p>
+<p>1）  windows虚拟主机；</p>
+<p>2）  Linux虚拟主机；</p>
+<h3 id="6-3-配置基于域名的虚拟主机"><a href="#6-3-配置基于域名的虚拟主机" class="headerlink" title="6.3 配置基于域名的虚拟主机"></a>6.3 配置基于域名的虚拟主机</h3><p><strong>目标</strong>：配置一个名为<a href="http://www.day1.com的域名，指向F:/home/class/day1/code目录" target="_blank" rel="noopener">www.day1.com的域名，指向F:/home/class/day1/code目录</a></p>
+<h4 id="6-3-1-配置过程"><a href="#6-3-1-配置过程" class="headerlink" title="6.3.1 配置过程"></a>6.3.1 配置过程</h4><p>1) 打开apache的主配置文件httpd.conf，开启引入httpd-vhosts.conf文件的配置，如下图去掉配置项前面的”#”，开启该配置项，</p>
+<p><img src="\images\two\img_d1\45.png" alt="45"></p>
+<p>2) 打开 apache根目录/conf/extra/httpd-vhosts.conf文件，将下图中红框所示的部分全部加上“#”注释掉，</p>
+<p><img src="\images\two\img_d1\46.png" alt="46"></p>
+<p>3) 在httpd-vhosts.conf文件中添加以下配置项，</p>
+<p><img src="\images\two\img_d1\47.png" alt="47"></p>
+<p>4) 在day1/code/code1.php中构建测试代码,如下图， </p>
+<p><img src="\images\two\img_d1\53_d1.png" alt="53_d1"></p>
+<p>5) 重启apache,通过 <a href="http://www.day1.com" target="_blank" rel="noopener">www.day1.com</a> 访问项目目录下的code1.php)文件，</p>
+<p>重启apache</p>
+<p><img src="\images\two\img_d1\54_d1.png" alt="54_d1"></p>
+<p>6) 打开C:/Windows/system32/drivers/etc/hosts文件，在最末尾添加如下图所示的配置项，让<a href="http://www.day1.com域名指向127.0.0.1也就是本地，" target="_blank" rel="noopener">www.day1.com域名指向127.0.0.1也就是本地，</a></p>
+<p><img src="\images\two\img_d1\55_d1.png" alt="55_d1"><img src="\images\two\img_d1\56_d1.png" alt="56_d1"></p>
+<p>第七步，使用浏览器测试访问，效果如下：</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/php/" rel="tag"># php</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/08/quick-前端/" rel="next" title="quick-前端">
+                <i class="fa fa-chevron-left"></i> quick-前端
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/09/php基础/" rel="prev" title="php基础">
+                php基础 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/a.jpg" alt="JIUXINYAN">
+            
+              <p class="site-author-name" itemprop="name">JIUXINYAN</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/JIUXINYAN" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="691661505@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/JIUXINYAN.com/" title="moxin" target="_blank">moxin</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建PHP环境"><span class="nav-number">1.</span> <span class="nav-text">搭建PHP环境</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-PHP基本介绍"><span class="nav-number">1.1.</span> <span class="nav-text">1. PHP基本介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-为什么学习PHP"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1 为什么学习PHP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-什么是PHP"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2 什么是PHP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-静态网站与动态网站的区别"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.3 静态网站与动态网站的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-网站的基本概念"><span class="nav-number">1.2.</span> <span class="nav-text">2. 网站的基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-服务器"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-IP"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 IP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-域名"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.3 域名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-DNS"><span class="nav-number">1.2.4.</span> <span class="nav-text">2.4 DNS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-端口"><span class="nav-number">1.2.5.</span> <span class="nav-text">2.5 端口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-安装apache"><span class="nav-number">1.3.</span> <span class="nav-text">3. 安装apache</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-软件安装"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1 软件安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-1-准备软件压缩包"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">3.1.1 准备软件压缩包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-2-安装步骤"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">3.1.2 安装步骤</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-apache重点目录说明"><span class="nav-number">1.3.2.</span> <span class="nav-text">3.2 apache重点目录说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-httpd-exe相关应用"><span class="nav-number">1.3.3.</span> <span class="nav-text">3.3 httpd.exe相关应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-查看apache加载的模块"><span class="nav-number">1.3.4.</span> <span class="nav-text">3.4 查看apache加载的模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-重启apache"><span class="nav-number">1.3.5.</span> <span class="nav-text">3.5 重启apache</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6调出帮助列表"><span class="nav-number">1.3.6.</span> <span class="nav-text">3.6调出帮助列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6-检查配置语法"><span class="nav-number">1.3.7.</span> <span class="nav-text">3.6 检查配置语法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-安装PHP"><span class="nav-number">1.4.</span> <span class="nav-text">4. 安装PHP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1软件安装"><span class="nav-number">1.4.1.</span> <span class="nav-text">4.1软件安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-1-准备软件压缩包"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">4.1.1 准备软件压缩包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-2-安装步骤"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">4.1.2 安装步骤</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-安装MYSQL"><span class="nav-number">1.5.</span> <span class="nav-text">5.安装MYSQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1软件安装"><span class="nav-number">1.5.1.</span> <span class="nav-text">5.1软件安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-1-准备软件压缩包"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">5.1.1 准备软件压缩包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-2-安装步骤"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">5.1.2 安装步骤</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-配置虚拟主机"><span class="nav-number">1.6.</span> <span class="nav-text">6. 配置虚拟主机</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-什么是虚拟主机"><span class="nav-number">1.6.1.</span> <span class="nav-text">6.1 什么是虚拟主机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-虚拟主机的分类"><span class="nav-number">1.6.2.</span> <span class="nav-text">6.2 虚拟主机的分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-配置基于域名的虚拟主机"><span class="nav-number">1.6.3.</span> <span class="nav-text">6.3 配置基于域名的虚拟主机</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-1-配置过程"><span class="nav-number">1.6.3.1.</span> <span class="nav-text">6.3.1 配置过程</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JIUXINYAN</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Pisces</a> v6.0.6</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.6"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.6"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.0.6"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.0.6"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.6"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.6"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.6"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
